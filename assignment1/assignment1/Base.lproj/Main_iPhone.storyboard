@@ -89,7 +89,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Hh-Xy-FTv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Hh-Xy-FTv">
                                 <rect key="frame" x="113" y="113" width="95" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Change Label">
@@ -99,7 +99,7 @@
                                     <action selector="changeLabelToHelloWorld:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="dyT-Mn-5vm"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="326-Vz-ia4">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="326-Vz-ia4">
                                 <rect key="frame" x="90" y="170" width="141" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -113,7 +113,7 @@
                             <constraint firstItem="326-Vz-ia4" firstAttribute="top" secondItem="8Hh-Xy-FTv" secondAttribute="bottom" constant="27" id="2N0-0n-IFb"/>
                             <constraint firstItem="326-Vz-ia4" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="90" id="71P-X5-G7F"/>
                             <constraint firstAttribute="trailing" secondItem="326-Vz-ia4" secondAttribute="trailing" constant="89" id="GDD-Pw-6v0"/>
-                            <constraint firstItem="8Hh-Xy-FTv" firstAttribute="top" secondItem="ZMD-Ox-40Z" secondAttribute="bottom" constant="93" id="WHU-nz-q3t"/>
+                            <constraint firstItem="8Hh-Xy-FTv" firstAttribute="top" secondItem="ZMD-Ox-40Z" secondAttribute="bottom" constant="49" id="SVn-U2-CRH"/>
                             <constraint firstAttribute="trailing" secondItem="8Hh-Xy-FTv" secondAttribute="trailing" constant="112" id="fUA-iL-VmM"/>
                         </constraints>
                     </view>
