@@ -18,7 +18,7 @@
 -(NSArray *) imageNames {
     if(!_imageNames)
         _imageNames =
-        @[@"one",@"Hello World",@"three"];
+        @[@"Timer",@"Hello World",@"three"];
     return _imageNames;
 }
 
@@ -68,7 +68,7 @@
     static NSString *CellIdentifier;
     
     if (indexPath.row == 0) {
-        CellIdentifier = @"ImageLoaderCell";
+        CellIdentifier = @"TimerLoaderCell";
     } else if (indexPath.row == 1)
     {
         CellIdentifier = @"HelloWorldCell";
