@@ -52,14 +52,18 @@
 - (void)ticker:(NSTimer *)timer {
     seconds--;
     
-    if (seconds == 0 && minutes ==0)
-    {
-        [self transition];
-    }
-    else if (seconds == 0)
+    if (seconds == 0 && minutes >= 1)
     {
         seconds = 60;
         minutes--;
+
+    }
+    else if (minutes ==0 && seconds ==0)
+    {
+        [self stopTimer:nil];
+        [self transition];
+
+        //timerLabel.text = @"00:00";
     }
     
     NSString* currentTime = [NSString stringWithFormat:@"%02d:%02d",minutes,seconds];

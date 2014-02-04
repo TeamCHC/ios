@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390A9B6018A07041007D22A8 /* Alarm-Clock-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 390A9B5F18A07041007D22A8 /* Alarm-Clock-256.png */; };
 		39586B7818A042AC00A95583 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39586B7718A042AC00A95583 /* TimerViewController.m */; };
 		39586B7B18A0454E00A95583 /* TimerViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 39586B7A18A0454E00A95583 /* TimerViewController2.m */; };
 		39586B7E18A0517200A95583 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39586B7C18A0517200A95583 /* Model.xcdatamodeld */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		390A9B5F18A07041007D22A8 /* Alarm-Clock-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm-Clock-256.png"; sourceTree = "<group>"; };
 		39586B7618A042AC00A95583 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
 		39586B7718A042AC00A95583 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		39586B7918A0454E00A95583 /* TimerViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController2.h; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		3965D47018972275000C7259 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				390A9B5F18A07041007D22A8 /* Alarm-Clock-256.png */,
 				3965D47118972275000C7259 /* assignment1-Info.plist */,
 				3965D47218972275000C7259 /* InfoPlist.strings */,
 				3965D47518972275000C7259 /* main.m */,
@@ -261,6 +264,7 @@
 			files = (
 				3965D48518972275000C7259 /* Images.xcassets in Resources */,
 				3965D47D18972275000C7259 /* Main_iPhone.storyboard in Resources */,
+				390A9B6018A07041007D22A8 /* Alarm-Clock-256.png in Resources */,
 				3965D47418972275000C7259 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
