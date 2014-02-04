@@ -42,7 +42,8 @@
     if (seconds > 0 || minutes > 0)
     {
         timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(ticker:) userInfo:nil repeats:YES];
-        //[[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+        [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+        //NSRunLoopCommonModes
     } else {
         timerLabel.text = @"Set Timer!";
     }

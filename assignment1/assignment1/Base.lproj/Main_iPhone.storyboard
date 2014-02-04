@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Root View Controller-->
+        <!--Table View Controller - Menu-->
         <scene sceneID="YCP-xw-M4T">
             <objects>
                 <tableViewController id="sjb-sq-OAC" customClass="TableViewController" sceneMemberID="viewController">
@@ -56,7 +56,7 @@
                         </prototypes>
                         <sections/>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="0sb-P3-dn6"/>
+                    <navigationItem key="navigationItem" title="Menu" id="0sb-P3-dn6"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUr-4z-D2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1195" y="-355"/>
+            <point key="canvasLocation" x="1378" y="-475"/>
         </scene>
         <!--Timer View Controller-->
         <scene sceneID="9sb-KD-lpn">
@@ -146,7 +146,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWJ-uS-wTQ">
-                                <rect key="frame" x="49" y="357" width="71" height="52"/>
+                                <rect key="frame" x="49" y="236" width="71" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -156,7 +156,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLN-yU-DuH">
-                                <rect key="frame" x="197" y="357" width="71" height="52"/>
+                                <rect key="frame" x="195" y="236" width="71" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Stop">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -204,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zlr-4B-1Rc" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1378" y="-1392"/>
+            <point key="canvasLocation" x="1378" y="-1232"/>
         </scene>
         <!--Timer View Controller2-->
         <scene sceneID="nVT-Ea-UV2">
@@ -228,13 +228,17 @@
                                     <action selector="backAction:" destination="jOa-Be-ub9" eventType="touchUpInside" id="dXd-1V-i0d"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0PJ-fc-0c8">
+                                <rect key="frame" x="34" y="76" width="240" height="174"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uV8-CG-HOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1905" y="-1479"/>
+            <point key="canvasLocation" x="1849" y="-1232"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
