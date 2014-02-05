@@ -72,7 +72,11 @@
     } else if (indexPath.row == 1)
     {
         CellIdentifier = @"HelloWorldCell";
+    } else if (indexPath.row == 2)
+    {
+        CellIdentifier = @"PageCell";
     }
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
