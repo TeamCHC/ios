@@ -18,7 +18,7 @@
 -(NSArray *) imageNames {
     if(!_imageNames)
         _imageNames =
-        @[@"Timer",@"Hello World",@"three"];
+        @[@"Timer",@"Hello World",@"three",@"four"];
     return _imageNames;
 }
 
@@ -75,6 +75,8 @@
     } else if (indexPath.row == 2)
     {
         CellIdentifier = @"PageCell";
+    } else if (indexPath.row ==3) {
+        CellIdentifier = @"SwitchCell";
     }
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];

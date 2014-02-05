@@ -5,13 +5,15 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>CB892A3F-2E4D-4D45-954D-64CF884F4960</string>
+	<string>CBB65F3D-6E6A-4F31-BE5E-EFD79F714C21</string>
 	<key>IDESourceControlProjectName</key>
 	<string>assignment1</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>86BF7ED7-379D-4BDE-A715-68EF55EA29B3</key>
 		<string>https://github.com/TeamCHC/ios.git</string>
+		<key>97AE0FD9-1F38-40D6-8C5F-E52465FC6D38</key>
+		<string>https://github.com/hhouston/assignment1.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>assignment1/assignment1.xcodeproj/project.xcworkspace</string>
@@ -19,15 +21,25 @@
 	<dict>
 		<key>86BF7ED7-379D-4BDE-A715-68EF55EA29B3</key>
 		<string>../../..</string>
+		<key>97AE0FD9-1F38-40D6-8C5F-E52465FC6D38</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/TeamCHC/ios.git</string>
+	<string>https://github.com/hhouston/assignment1.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
 	<string>86BF7ED7-379D-4BDE-A715-68EF55EA29B3</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>97AE0FD9-1F38-40D6-8C5F-E52465FC6D38</string>
+			<key>IDESourceControlWCCName</key>
+			<string>assignment1</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

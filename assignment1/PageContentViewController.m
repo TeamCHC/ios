@@ -30,7 +30,7 @@
     _pageImages = @[@"page1", @"page2", @"page3", @"page4", @"page5"];
     
     //self.pageImage.image = [UIImage imageNamed:self.imageFile];
-    self.pageLabel.text = self.titleText;
+    //self.pageLabel.text = self.titleText;
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
@@ -66,10 +66,10 @@
     }
     
     // Create a new view controller and pass suitable data.
-    PageContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
-    pageContentViewController.imageFile = self.pageImages[index];
-    pageContentViewController.titleText = self.pageTitles[index];
-    pageContentViewController.pageIndex = index;
+    PageContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
+    //pageContentViewController.imageFile = self.pageImages[index];
+    //pageContentViewController.titleText = self.pageTitles[index];
+    //pageContentViewController.pageIndex = index;
     
     return pageContentViewController;
 }

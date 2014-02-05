@@ -24,9 +24,10 @@
 }
 
 - (IBAction)stepperValueChanged:(UIStepper *)sender{
-    self.timerLabel.text = [NSString stringWithFormat:@"%02d:%02d",(int)minuteStepper.value, (int)secondStepper.value];
     minutes = (int)minuteStepper.value;
     seconds = (int)secondStepper.value;
+    self.timerLabel.text = [NSString stringWithFormat:@"%02d:%02d",minutes,seconds];
+
 }
 
 
@@ -50,11 +51,11 @@
 }
 
 - (void)ticker:(NSTimer *)timer {
-    seconds--;
+    
     
     if (seconds == 0 && minutes >= 1)
     {
-        seconds = 60;
+        seconds = 59;
         minutes--;
 
     }
@@ -64,6 +65,8 @@
         [self transition];
 
         //timerLabel.text = @"00:00";
+    } else {
+        seconds--;
     }
     
     NSString* currentTime = [NSString stringWithFormat:@"%02d:%02d",minutes,seconds];
