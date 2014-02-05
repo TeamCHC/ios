@@ -76,141 +76,23 @@
     [self.view addSubview:_redButton];
     
     
+    // dictionary name spacing, variables halfwidth and halfheight, values of variables to the right
+    NSDictionary *spacing = @{
+                              @"halfwidth" : @(self.view.frame.size.width/2), // @() contains NSNumber
+                              @"halfheight" : @(self.view.frame.size.height/2)
+                              };
     
-    NSLayoutConstraint *constraint =
-        [NSLayoutConstraint constraintWithItem:_blueButton
-                                     attribute:NSLayoutAttributeLeft
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:self.view
-                                     attribute:NSLayoutAttributeLeft
-                                    multiplier:1.0f
-                                      constant:0.f];
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-halfheight-[_redButton]-[_greenButton]-[_blueButton]"
+                                             options:NSLayoutFormatAlignAllCenterX // vertically aligning buttons
+                                             metrics:spacing
+                                               views:NSDictionaryOfVariableBindings(_redButton, _greenButton,_blueButton)]];
     
-    [self.view addConstraint:constraint];
-    
-    constraint =
-    [NSLayoutConstraint constraintWithItem:_blueButton
-                                 attribute:NSLayoutAttributeRight
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:self.view
-                                 attribute:NSLayoutAttributeRight
-                                multiplier:1.0f
-                                  constant:0.f];
-    
-    [self.view addConstraint:constraint];
-    
-    constraint =
-    [NSLayoutConstraint constraintWithItem:_blueButton
-                                 attribute:NSLayoutAttributeTop
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:self.view
-                                 attribute:NSLayoutAttributeTop
-                                multiplier:1.0f
-                                  constant:50.f];
-    
-    [self.view addConstraint:constraint];
-    
-    constraint =
-    [NSLayoutConstraint constraintWithItem:_blueButton
-                                 attribute:NSLayoutAttributeBottom
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:self.view
-                                 attribute:NSLayoutAttributeBottom
-                                multiplier:1.0f
-                                  constant:50.f];
-    
-    [self.view addConstraint:constraint];
-    
-    
-    constraint =
-    [NSLayoutConstraint constraintWithItem:_greenButton
-                                 attribute:NSLayoutAttributeLeft
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:self.view
-                                 attribute:NSLayoutAttributeLeft
-                                multiplier:1.0f
-                                  constant:0.f];
-    
-    [self.view addConstraint:constraint];
-    
-    constraint =
-    [NSLayoutConstraint constraintWithItem:_greenButton
-                                 attribute:NSLayoutAttributeRight
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:self.view
-                                 attribute:NSLayoutAttributeRight
-                                multiplier:1.0f
-                                  constant:0.f];
-    
-    [self.view addConstraint:constraint];
-    
-    constraint =
-    [NSLayoutConstraint constraintWithItem:_greenButton
-                                 attribute:NSLayoutAttributeTop
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:self.view
-                                 attribute:NSLayoutAttributeTop
-                                multiplier:1.0f
-                                  constant:70.f];
-    
-    [self.view addConstraint:constraint];
-    
-    constraint =
-    [NSLayoutConstraint constraintWithItem:_greenButton
-                                 attribute:NSLayoutAttributeBottom
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:self.view
-                                 attribute:NSLayoutAttributeBottom
-                                multiplier:1.0f
-                                  constant:70.f];
-    
-    [self.view addConstraint:constraint];
-    
-    
-    constraint =
-    [NSLayoutConstraint constraintWithItem:_redButton
-                                 attribute:NSLayoutAttributeLeft
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:self.view
-                                 attribute:NSLayoutAttributeLeft
-                                multiplier:1.0f
-                                  constant:0.f];
-    
-    [self.view addConstraint:constraint];
-    
-    constraint =
-    [NSLayoutConstraint constraintWithItem:_redButton
-                                 attribute:NSLayoutAttributeRight
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:self.view
-                                 attribute:NSLayoutAttributeRight
-                                multiplier:1.0f
-                                  constant:0.f];
-    
-    [self.view addConstraint:constraint];
-    
-    constraint =
-    [NSLayoutConstraint constraintWithItem:_redButton
-                                 attribute:NSLayoutAttributeTop
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:self.view
-                                 attribute:NSLayoutAttributeTop
-                                multiplier:1.0f
-                                  constant:90.f];
-    
-    [self.view addConstraint:constraint];
-    
-    constraint =
-    [NSLayoutConstraint constraintWithItem:_redButton
-                                 attribute:NSLayoutAttributeBottom
-                                 relatedBy:NSLayoutRelationEqual
-                                    toItem:self.view
-                                 attribute:NSLayoutAttributeBottom
-                                multiplier:1.0f
-                                  constant:90.f];
-    
-    [self.view addConstraint:constraint];
-
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-halfwidth-[_redButton]" // only adjusting red horiz.
+                                             options:0
+                                             metrics:spacing
+                                               views:NSDictionaryOfVariableBindings(_redButton)]];
     
 }
 
