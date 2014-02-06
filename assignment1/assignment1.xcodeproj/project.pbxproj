@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CF8519A18A30F1000153D6A /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF8519918A30F1000153D6A /* SwitchViewController.m */; };
 		390A9B6018A07041007D22A8 /* Alarm-Clock-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 390A9B5F18A07041007D22A8 /* Alarm-Clock-256.png */; };
 		39586B7818A042AC00A95583 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39586B7718A042AC00A95583 /* TimerViewController.m */; };
 		39586B7B18A0454E00A95583 /* TimerViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 39586B7A18A0454E00A95583 /* TimerViewController2.m */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CF8519818A30F1000153D6A /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
+		0CF8519918A30F1000153D6A /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
 		390A9B5F18A07041007D22A8 /* Alarm-Clock-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm-Clock-256.png"; sourceTree = "<group>"; };
 		39586B7618A042AC00A95583 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
 		39586B7718A042AC00A95583 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
@@ -139,6 +142,8 @@
 				3965D47818972275000C7259 /* AppDelegate.h */,
 				3965D47918972275000C7259 /* AppDelegate.m */,
 				3965D47B18972275000C7259 /* Main_iPhone.storyboard */,
+				0CF8519818A30F1000153D6A /* SwitchViewController.h */,
+				0CF8519918A30F1000153D6A /* SwitchViewController.m */,
 				39586B7618A042AC00A95583 /* TimerViewController.h */,
 				39586B7718A042AC00A95583 /* TimerViewController.m */,
 				39586B7918A0454E00A95583 /* TimerViewController2.h */,
@@ -291,6 +296,7 @@
 				3965D48318972275000C7259 /* ViewController.m in Sources */,
 				3965D47A18972275000C7259 /* AppDelegate.m in Sources */,
 				3965D47618972275000C7259 /* main.m in Sources */,
+				0CF8519A18A30F1000153D6A /* SwitchViewController.m in Sources */,
 				3966615618977389007851DF /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
