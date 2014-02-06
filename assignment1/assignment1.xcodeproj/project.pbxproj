@@ -27,6 +27,7 @@
 		3965D49818972275000C7259 /* assignment1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3965D49718972275000C7259 /* assignment1Tests.m */; };
 		3966615618977389007851DF /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3966615518977389007851DF /* TableViewController.m */; };
 		3966619D1899B51D007851DF /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3966619C1899B51D007851DF /* ImageViewController.m */; };
+		39E8823D18A313320092FD3E /* PageDataSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E8823C18A313320092FD3E /* PageDataSourceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		3966615518977389007851DF /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		3966619B1899B51D007851DF /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		3966619C1899B51D007851DF /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		39E8823B18A313320092FD3E /* PageDataSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageDataSourceViewController.h; sourceTree = "<group>"; };
+		39E8823C18A313320092FD3E /* PageDataSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageDataSourceViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,8 @@
 				3965D48218972275000C7259 /* ViewController.m */,
 				3966619B1899B51D007851DF /* ImageViewController.h */,
 				3966619C1899B51D007851DF /* ImageViewController.m */,
+				39E8823B18A313320092FD3E /* PageDataSourceViewController.h */,
+				39E8823C18A313320092FD3E /* PageDataSourceViewController.m */,
 				39586B7F18A0519E00A95583 /* Model */,
 				3965D48418972275000C7259 /* Images.xcassets */,
 				3965D47018972275000C7259 /* Supporting Files */,
@@ -288,6 +293,7 @@
 				39586B7818A042AC00A95583 /* TimerViewController.m in Sources */,
 				3966619D1899B51D007851DF /* ImageViewController.m in Sources */,
 				39586B7E18A0517200A95583 /* Model.xcdatamodeld in Sources */,
+				39E8823D18A313320092FD3E /* PageDataSourceViewController.m in Sources */,
 				3965D48318972275000C7259 /* ViewController.m in Sources */,
 				3965D47A18972275000C7259 /* AppDelegate.m in Sources */,
 				3965D47618972275000C7259 /* main.m in Sources */,
