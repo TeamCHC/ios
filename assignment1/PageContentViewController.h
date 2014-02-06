@@ -8,16 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PageContentViewController : UIPageViewController <UIPageViewControllerDataSource>
-@property (weak, nonatomic) IBOutlet UILabel *pageLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *pageImage;
-
-@property (strong, nonatomic) UIPageViewController *pageViewController;
-@property (strong, nonatomic) NSArray *pageTitles;
-@property (strong, nonatomic) NSArray *pageImages;
+@interface PageContentViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property NSUInteger pageIndex;
 @property NSString *titleText;
 @property NSString *imageFile;
-
 @end

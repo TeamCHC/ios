@@ -72,11 +72,6 @@
     } else if (indexPath.row == 1)
     {
         CellIdentifier = @"HelloWorldCell";
-    } else if (indexPath.row == 2)
-    {
-        CellIdentifier = @"PageCell";
-    } else if (indexPath.row ==3) {
-        CellIdentifier = @"SwitchCell";
     }
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
