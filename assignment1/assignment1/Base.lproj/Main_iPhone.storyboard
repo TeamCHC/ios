@@ -93,6 +93,26 @@
                                     <segue destination="XTb-Lc-muj" kind="push" id="M1y-wp-eIU"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SliderCell" textLabel="Lxh-tN-Uyo" style="IBUITableViewCellStyleDefault" id="AyW-ra-kBe" customClass="HelloWorldCell">
+                                <rect key="frame" x="0.0" y="262" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AyW-ra-kBe" id="VLc-GV-VLg">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lxh-tN-Uyo">
+                                            <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="D26-hl-bLU" kind="push" id="ezd-kx-Dgj"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                     </tableView>
@@ -101,6 +121,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUr-4z-D2u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="687" y="-735"/>
+        </scene>
+        <!--Slider View Controller-->
+        <scene sceneID="E6F-Wx-ciY">
+            <objects>
+                <viewController id="D26-hl-bLU" customClass="SliderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gwC-VO-rfq"/>
+                        <viewControllerLayoutGuide type="bottom" id="I1F-9V-eX2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iFS-2h-97P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="0sH-J8-TP3">
+                                <rect key="frame" x="18" y="125" width="118" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="D26-hl-bLU" eventType="valueChanged" id="x97-6b-Kbr"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ul9-F3-2bD">
+                                <rect key="frame" x="216" y="131" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ul9-F3-2bD" secondAttribute="trailing" constant="20" symbolic="YES" id="Are-ej-Lct"/>
+                            <constraint firstItem="0sH-J8-TP3" firstAttribute="leading" secondItem="iFS-2h-97P" secondAttribute="leading" constant="20" symbolic="YES" id="CCh-tb-ZDa"/>
+                            <constraint firstItem="Ul9-F3-2bD" firstAttribute="top" secondItem="gwC-VO-rfq" secondAttribute="bottom" constant="20" symbolic="YES" id="DYZ-5b-OkF"/>
+                            <constraint firstItem="0sH-J8-TP3" firstAttribute="top" secondItem="gwC-VO-rfq" secondAttribute="bottom" constant="20" symbolic="YES" id="q7A-yE-bMI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WFn-3i-ZA9"/>
+                    <connections>
+                        <outlet property="slide" destination="0sH-J8-TP3" id="AO7-qa-Djw"/>
+                        <outlet property="slideValue" destination="Ul9-F3-2bD" id="DWU-rr-zSc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aJs-dJ-eYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1527" y="1375"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="Ysk-7n-isd">

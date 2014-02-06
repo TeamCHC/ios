@@ -18,7 +18,7 @@
 -(NSArray *) imageNames {
     if(!_imageNames)
         _imageNames =
-        @[@"Timer",@"Hello World",@"Page View",@"Switch and Picker"];
+        @[@"Timer",@"Hello World",@"Page View",@"Switch and Picker", @"Slider"];
     return _imageNames;
 }
 
@@ -78,6 +78,9 @@
     } else if (indexPath.row == 3)
     {
         CellIdentifier = @"SwitchCell";
+    } else if (indexPath.row == 4)
+    {
+        CellIdentifier = @"SliderCell";
     }
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
