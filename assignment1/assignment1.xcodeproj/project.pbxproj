@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0CF8519718A3067C00153D6A /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF8519618A3067C00153D6A /* SwitchViewController.m */; };
 		390A9B6018A07041007D22A8 /* Alarm-Clock-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 390A9B5F18A07041007D22A8 /* Alarm-Clock-256.png */; };
-		3915805018A1C5C4005914CB /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3915804F18A1C5C4005914CB /* PageContentViewController.m */; };
 		39586B7818A042AC00A95583 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39586B7718A042AC00A95583 /* TimerViewController.m */; };
 		39586B7B18A0454E00A95583 /* TimerViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 39586B7A18A0454E00A95583 /* TimerViewController2.m */; };
 		39586B7E18A0517200A95583 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39586B7C18A0517200A95583 /* Model.xcdatamodeld */; };
@@ -45,8 +44,6 @@
 		0CF8519518A3067C00153D6A /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
 		0CF8519618A3067C00153D6A /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
 		390A9B5F18A07041007D22A8 /* Alarm-Clock-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm-Clock-256.png"; sourceTree = "<group>"; };
-		3915804E18A1C5C4005914CB /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageContentViewController.h; path = ../PageContentViewController.h; sourceTree = "<group>"; };
-		3915804F18A1C5C4005914CB /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageContentViewController.m; path = ../PageContentViewController.m; sourceTree = "<group>"; };
 		39586B7618A042AC00A95583 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
 		39586B7718A042AC00A95583 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		39586B7918A0454E00A95583 /* TimerViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController2.h; sourceTree = "<group>"; };
@@ -157,8 +154,6 @@
 				3965D48218972275000C7259 /* ViewController.m */,
 				3966619B1899B51D007851DF /* ImageViewController.h */,
 				3966619C1899B51D007851DF /* ImageViewController.m */,
-				3915804E18A1C5C4005914CB /* PageContentViewController.h */,
-				3915804F18A1C5C4005914CB /* PageContentViewController.m */,
 				39586B7F18A0519E00A95583 /* Model */,
 				3965D48418972275000C7259 /* Images.xcassets */,
 				3965D47018972275000C7259 /* Supporting Files */,
@@ -296,7 +291,6 @@
 			files = (
 				39586B7B18A0454E00A95583 /* TimerViewController2.m in Sources */,
 				39586B7818A042AC00A95583 /* TimerViewController.m in Sources */,
-				3915805018A1C5C4005914CB /* PageContentViewController.m in Sources */,
 				3966619D1899B51D007851DF /* ImageViewController.m in Sources */,
 				39586B7E18A0517200A95583 /* Model.xcdatamodeld in Sources */,
 				3965D48318972275000C7259 /* ViewController.m in Sources */,
