@@ -47,8 +47,8 @@
     //blueButton.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
     //blueButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     [_blueButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [_blueButton sizeToFit];
     [_blueButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [_blueButton sizeToFit];
     [self.view addSubview:_blueButton];
     
     
@@ -59,8 +59,8 @@
     [_greenButton setTitle:@"Green" forState:UIControlStateNormal];
     //greenButton.frame = CGRectMake(80.0, 240.0, 160.0, 40.0);
     [_greenButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
-    [_greenButton sizeToFit];
     [_greenButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [_greenButton sizeToFit];
     [self.view addSubview:_greenButton];
     
     
@@ -71,28 +71,29 @@
     [_redButton setTitle:@"Red" forState:UIControlStateNormal];
     //redButton.frame = CGRectMake(80.0, 270.0, 160.0, 40.0);
     [_redButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [_redButton sizeToFit];
     [_redButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [_redButton sizeToFit];
     [self.view addSubview:_redButton];
     
     
     // dictionary name spacing, variables halfwidth and halfheight, values of variables to the right
     NSDictionary *spacing = @{
                               @"halfwidth" : @(self.view.frame.size.width/2), // @() contains NSNumber
-                              @"halfheight" : @(self.view.frame.size.height/2)
+                              @"eigthheight" : @(self.view.frame.size.height/8),
+                              @"bottom" : @(self.view.frame.size.height-50)
                               };
     
     [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-halfheight-[_redButton]-[_greenButton]-[_blueButton]"
-                                             options:NSLayoutFormatAlignAllCenterX // vertically aligning buttons
-                                             metrics:spacing
-                                               views:NSDictionaryOfVariableBindings(_redButton, _greenButton,_blueButton)]];
-    
-    [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-halfwidth-[_redButton]" // only adjusting red horiz.
-                                             options:0
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_redButton]-eigthheight-|"
+                                             options:0 // vertically aligning buttons
                                              metrics:spacing
                                                views:NSDictionaryOfVariableBindings(_redButton)]];
+    
+    [self.view addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_redButton(==_blueButton)]-[_greenButton(==_blueButton)]-[_blueButton]-|"
+                                             options:NSLayoutFormatAlignAllCenterY
+                                             metrics:spacing
+                                               views:NSDictionaryOfVariableBindings(_redButton, _greenButton, _blueButton)]];
     
 }
 
