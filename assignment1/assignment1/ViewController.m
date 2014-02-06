@@ -77,24 +77,24 @@
     
     
     // dictionary name spacing, variables halfwidth and halfheight, values of variables to the right
-    NSDictionary *spacing = @{
-                              @"halfwidth" : @(self.view.frame.size.width/2), // @() contains NSNumber
-                              @"eigthheight" : @(self.view.frame.size.height/8),
-                              @"bottom" : @(self.view.frame.size.height-50)
-                              };
-    
-    [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_redButton]-eigthheight-|"
-                                             options:0 // vertically aligning buttons
-                                             metrics:spacing
-                                               views:NSDictionaryOfVariableBindings(_redButton)]];
-    
-    [self.view addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_redButton(==_blueButton)]-[_greenButton(==_blueButton)]-[_blueButton]-|"
-                                             options:NSLayoutFormatAlignAllCenterY
-                                             metrics:spacing
-                                               views:NSDictionaryOfVariableBindings(_redButton, _greenButton, _blueButton)]];
-    
+//    NSDictionary *spacing = @{
+//                              @"halfwidth" : @(self.view.frame.size.width/2), // @() contains NSNumber
+//                              @"eigthheight" : @(self.view.frame.size.height/8),
+//                              @"bottom" : @(self.view.frame.size.height-50)
+//                              };
+//    
+//    [self.view addConstraints:
+//     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_redButton]-eigthheight-|"
+//                                             options:0 // vertically aligning buttons
+//                                             metrics:spacing
+//                                               views:NSDictionaryOfVariableBindings(_redButton)]];
+//    
+//    [self.view addConstraints:
+//     [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[_redButton(==_blueButton)]-[_greenButton(==_blueButton)]-[_blueButton]-|"
+//                                             options:NSLayoutFormatAlignAllCenterY
+//                                             metrics:spacing
+//                                               views:NSDictionaryOfVariableBindings(_redButton, _greenButton, _blueButton)]];
+//    
 }
 - (void)didReceiveMemoryWarning
 {

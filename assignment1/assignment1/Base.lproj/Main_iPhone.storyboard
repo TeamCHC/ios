@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="687" y="-735"/>
         </scene>
-        <!--View Controller-->
+        <!--Page View Controller-->
         <scene sceneID="Ysk-7n-isd">
             <objects>
-                <viewController id="XV7-Hr-aTW" sceneMemberID="viewController">
+                <viewController id="XV7-Hr-aTW" customClass="PageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dFv-PU-CD8"/>
                         <viewControllerLayoutGuide type="bottom" id="Xaf-Bb-5qW"/>
@@ -185,6 +185,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1506" y="-735"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="CGF-Uk-qSr">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="RbC-J7-mwg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wJT-BY-Bvc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2174" y="-409"/>
+        </scene>
+        <!--Page Data Source View Controller-->
+        <scene sceneID="xtc-g6-bZ8">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EoZ-TD-dw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="PageDataSourceViewController" id="ftR-Ue-Q3R" customClass="PageDataSourceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="d9r-Io-IUT"/>
+                        <viewControllerLayoutGuide type="bottom" id="f2L-BD-dCm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cf4-mW-Syp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpv-QZ-cA8">
+                                <rect key="frame" x="79" y="120" width="150" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageLabel" destination="cpv-QZ-cA8" id="TKM-DY-Pqa"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2174" y="323"/>
         </scene>
         <!--Switch View Controller-->
         <scene sceneID="A1x-UD-HxQ">

@@ -28,6 +28,8 @@
 		3965D49818972275000C7259 /* assignment1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3965D49718972275000C7259 /* assignment1Tests.m */; };
 		3966615618977389007851DF /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3966615518977389007851DF /* TableViewController.m */; };
 		3966619D1899B51D007851DF /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3966619C1899B51D007851DF /* ImageViewController.m */; };
+		397C95E418A3293D002AE79B /* PageDataSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 397C95E318A3293D002AE79B /* PageDataSourceViewController.m */; };
+		397C95E718A32E67002AE79B /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 397C95E618A32E67002AE79B /* PageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,10 @@
 		3966615518977389007851DF /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		3966619B1899B51D007851DF /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		3966619C1899B51D007851DF /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		397C95E218A3293D002AE79B /* PageDataSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageDataSourceViewController.h; sourceTree = "<group>"; };
+		397C95E318A3293D002AE79B /* PageDataSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageDataSourceViewController.m; sourceTree = "<group>"; };
+		397C95E518A32E67002AE79B /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		397C95E618A32E67002AE79B /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +156,10 @@
 				39586B7A18A0454E00A95583 /* TimerViewController2.m */,
 				3966615418977389007851DF /* TableViewController.h */,
 				3966615518977389007851DF /* TableViewController.m */,
+				397C95E518A32E67002AE79B /* PageViewController.h */,
+				397C95E618A32E67002AE79B /* PageViewController.m */,
+				397C95E218A3293D002AE79B /* PageDataSourceViewController.h */,
+				397C95E318A3293D002AE79B /* PageDataSourceViewController.m */,
 				3965D48118972275000C7259 /* ViewController.h */,
 				3965D48218972275000C7259 /* ViewController.m */,
 				3966619B1899B51D007851DF /* ImageViewController.h */,
@@ -293,7 +303,9 @@
 				39586B7818A042AC00A95583 /* TimerViewController.m in Sources */,
 				3966619D1899B51D007851DF /* ImageViewController.m in Sources */,
 				39586B7E18A0517200A95583 /* Model.xcdatamodeld in Sources */,
+				397C95E418A3293D002AE79B /* PageDataSourceViewController.m in Sources */,
 				3965D48318972275000C7259 /* ViewController.m in Sources */,
+				397C95E718A32E67002AE79B /* PageViewController.m in Sources */,
 				3965D47A18972275000C7259 /* AppDelegate.m in Sources */,
 				3965D47618972275000C7259 /* main.m in Sources */,
 				0CF8519A18A30F1000153D6A /* SwitchViewController.m in Sources */,
