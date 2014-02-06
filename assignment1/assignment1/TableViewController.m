@@ -18,7 +18,7 @@
 -(NSArray *) imageNames {
     if(!_imageNames)
         _imageNames =
-        @[@"Timer",@"Hello World",@"three",@"four"];
+        @[@"Timer",@"Hello World",@"Page View",@"Switch and Picker"];
     return _imageNames;
 }
 

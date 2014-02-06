@@ -9,9 +9,11 @@
 #import "SwitchViewController.h"
 
 
-@interface SwitchViewController ()
+@interface SwitchViewController ()<UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIPickerView *photoPicker;
+@property (strong, nonatomic) NSArray *pickerOptions;
+
 
 @end
 
@@ -23,11 +25,26 @@
         self.imageView.image = nil;
 }
 
+- (IBAction)pickerAction:(UIPickerView *)sender2 {
+    
+}
+
+#pragma mark -
+#pragma mark PickerView DataSource
+
+- (NSInteger)numberOfComponentsInPickerView:
+(UIPickerView *)photoPicker
+{
+    return 1;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+    self.photoPicker.delegate = self;
+    _pickerOptions = @[@"Pony",@"SMU"];
+
 }
 
 - (void)didReceiveMemoryWarning

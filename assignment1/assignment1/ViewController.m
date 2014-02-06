@@ -39,7 +39,7 @@
     [super viewDidLoad];
     
     
-	_blueButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    _blueButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_blueButton addTarget:self
                     action:@selector(changeBackgroundColorToBlue:)
           forControlEvents:UIControlEventTouchDown];
@@ -54,8 +54,8 @@
     
     _greenButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_greenButton addTarget:self
-                    action:@selector(changeBackgroundColorToGreen:)
-          forControlEvents:UIControlEventTouchDown];
+                     action:@selector(changeBackgroundColorToGreen:)
+           forControlEvents:UIControlEventTouchDown];
     [_greenButton setTitle:@"Green" forState:UIControlStateNormal];
     //greenButton.frame = CGRectMake(80.0, 240.0, 160.0, 40.0);
     [_greenButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
@@ -66,8 +66,8 @@
     
     _redButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_redButton addTarget:self
-                    action:@selector(changeBackgroundColorToRed:)
-          forControlEvents:UIControlEventTouchDown];
+                   action:@selector(changeBackgroundColorToRed:)
+         forControlEvents:UIControlEventTouchDown];
     [_redButton setTitle:@"Red" forState:UIControlStateNormal];
     //redButton.frame = CGRectMake(80.0, 270.0, 160.0, 40.0);
     [_redButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
@@ -96,8 +96,6 @@
                                                views:NSDictionaryOfVariableBindings(_redButton, _greenButton, _blueButton)]];
     
 }
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
