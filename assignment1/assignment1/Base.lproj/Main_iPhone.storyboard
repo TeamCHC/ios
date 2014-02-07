@@ -141,26 +141,32 @@
                                     <action selector="sliderValueChanged:" destination="D26-hl-bLU" eventType="valueChanged" id="x97-6b-Kbr"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ul9-F3-2bD">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ul9-F3-2bD">
                                 <rect key="frame" x="216" y="131" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="102-KF-DGG">
+                                <rect key="frame" x="216" y="200" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="102-KF-DGG" secondAttribute="trailing" constant="20" symbolic="YES" id="4Me-ty-hz2"/>
                             <constraint firstAttribute="trailing" secondItem="Ul9-F3-2bD" secondAttribute="trailing" constant="20" symbolic="YES" id="Are-ej-Lct"/>
                             <constraint firstItem="0sH-J8-TP3" firstAttribute="leading" secondItem="iFS-2h-97P" secondAttribute="leading" constant="20" symbolic="YES" id="CCh-tb-ZDa"/>
-                            <constraint firstItem="Ul9-F3-2bD" firstAttribute="top" secondItem="gwC-VO-rfq" secondAttribute="bottom" constant="20" symbolic="YES" id="DYZ-5b-OkF"/>
-                            <constraint firstItem="0sH-J8-TP3" firstAttribute="top" secondItem="gwC-VO-rfq" secondAttribute="bottom" constant="20" symbolic="YES" id="q7A-yE-bMI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WFn-3i-ZA9"/>
                     <connections>
                         <outlet property="slide" destination="0sH-J8-TP3" id="AO7-qa-Djw"/>
                         <outlet property="slideValue" destination="Ul9-F3-2bD" id="DWU-rr-zSc"/>
+                        <outlet property="slideValue2" destination="102-KF-DGG" id="CLt-cr-o9X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJs-dJ-eYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
