@@ -1,26 +1,20 @@
 //
-//  TableViewController.m
+//  NameTableViewController.m
 //  assignment1
 //
-//  Created by Hunter Houston on 1/27/14.
+//  Created by Hunter Houston on 2/7/14.
 //  Copyright (c) 2014 SMU. All rights reserved.
 //
 
-#import "TableViewController.h"
+#import "NameTableViewController.h"
+#import "AppDelegate.h"
+#import "Record.h"
 
-@interface TableViewController ()
-@property (strong, nonatomic) NSArray* imageNames;
-
+@interface NameTableViewController ()
+@property (nonatomic,strong)NSArray* fetchedRecordsArray;
 @end
 
-@implementation TableViewController
-
--(NSArray *) imageNames {
-    if(!_imageNames)
-        _imageNames =
-        @[@"Timer",@"Hello World",@"Page View",@"Switch and Picker", @"Slider", @"Core Data"];
-    return _imageNames;
-}
+@implementation NameTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,7 +28,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [super viewDidLoad];
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     
+    // Fetching Records and saving it in "fetchedRecordsArray" object
+    self.fetchedRecordsArray = [appDelegate getRecords];
+    [self.tableView reloadData];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -49,8 +48,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -60,40 +57,17 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.imageNames count];
+    return [self.fetchedRecordsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier;
-    
-    if (indexPath.row == 0) {
-        CellIdentifier = @"TimerLoaderCell";
-    } else if (indexPath.row == 1)
-    {
-        CellIdentifier = @"HelloWorldCell";
-    } else if (indexPath.row == 2)
-    {
-        CellIdentifier = @"PageCell";
-    } else if (indexPath.row == 3)
-    {
-        CellIdentifier = @"SwitchCell";
-    } else if (indexPath.row == 4)
-    {
-        CellIdentifier = @"SliderCell";
-    } else if (indexPath.row == 5)
-    {
-        CellIdentifier = @"CoreDataCell";
-    }
-
+    static NSString *CellIdentifier = @"RecordCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    cell.textLabel.text = self.imageNames[indexPath.row];
+    Record * record = [self.fetchedRecordsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ ",record.firstName];
     return cell;
 }
-
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

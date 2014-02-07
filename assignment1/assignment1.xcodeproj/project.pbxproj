@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0C2497F418A4358D004755AB /* SliderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2497F318A4358D004755AB /* SliderViewController.m */; };
 		0CF8519A18A30F1000153D6A /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF8519918A30F1000153D6A /* SwitchViewController.m */; };
+		3906508F18A568BA0092EFF5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3906508E18A568BA0092EFF5 /* CoreData.framework */; };
+		3906509218A56AC50092EFF5 /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 3906509118A56AC50092EFF5 /* Record.m */; };
 		390A9B6018A07041007D22A8 /* Alarm-Clock-256.png in Resources */ = {isa = PBXBuildFile; fileRef = 390A9B5F18A07041007D22A8 /* Alarm-Clock-256.png */; };
 		39586B7818A042AC00A95583 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39586B7718A042AC00A95583 /* TimerViewController.m */; };
 		39586B7B18A0454E00A95583 /* TimerViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 39586B7A18A0454E00A95583 /* TimerViewController2.m */; };
@@ -28,9 +30,10 @@
 		3965D49618972275000C7259 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3965D49418972275000C7259 /* InfoPlist.strings */; };
 		3965D49818972275000C7259 /* assignment1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3965D49718972275000C7259 /* assignment1Tests.m */; };
 		3966615618977389007851DF /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3966615518977389007851DF /* TableViewController.m */; };
-		3966619D1899B51D007851DF /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3966619C1899B51D007851DF /* ImageViewController.m */; };
+		3966619D1899B51D007851DF /* CoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3966619C1899B51D007851DF /* CoreViewController.m */; };
 		397C95E418A3293D002AE79B /* PageDataSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 397C95E318A3293D002AE79B /* PageDataSourceViewController.m */; };
 		397C95E718A32E67002AE79B /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 397C95E618A32E67002AE79B /* PageViewController.m */; };
+		39D8760518A57C2E00401BFA /* NameTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D8760418A57C2E00401BFA /* NameTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		0C2497F318A4358D004755AB /* SliderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderViewController.m; sourceTree = "<group>"; };
 		0CF8519818A30F1000153D6A /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
 		0CF8519918A30F1000153D6A /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
+		3906508E18A568BA0092EFF5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3906509018A56AC50092EFF5 /* Record.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
+		3906509118A56AC50092EFF5 /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
 		390A9B5F18A07041007D22A8 /* Alarm-Clock-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Alarm-Clock-256.png"; sourceTree = "<group>"; };
 		39586B7618A042AC00A95583 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
 		39586B7718A042AC00A95583 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
@@ -75,12 +81,14 @@
 		3965D49718972275000C7259 /* assignment1Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = assignment1Tests.m; sourceTree = "<group>"; };
 		3966615418977389007851DF /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		3966615518977389007851DF /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		3966619B1899B51D007851DF /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
-		3966619C1899B51D007851DF /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		3966619B1899B51D007851DF /* CoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreViewController.h; sourceTree = "<group>"; };
+		3966619C1899B51D007851DF /* CoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreViewController.m; sourceTree = "<group>"; };
 		397C95E218A3293D002AE79B /* PageDataSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageDataSourceViewController.h; sourceTree = "<group>"; };
 		397C95E318A3293D002AE79B /* PageDataSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageDataSourceViewController.m; sourceTree = "<group>"; };
 		397C95E518A32E67002AE79B /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		397C95E618A32E67002AE79B /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
+		39D8760318A57C2E00401BFA /* NameTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameTableViewController.h; sourceTree = "<group>"; };
+		39D8760418A57C2E00401BFA /* NameTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3906508F18A568BA0092EFF5 /* CoreData.framework in Frameworks */,
 				3965D46C18972275000C7259 /* CoreGraphics.framework in Frameworks */,
 				3965D46E18972275000C7259 /* UIKit.framework in Frameworks */,
 				3965D46A18972275000C7259 /* Foundation.framework in Frameworks */,
@@ -111,6 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				39586B7C18A0517200A95583 /* Model.xcdatamodeld */,
+				3906509018A56AC50092EFF5 /* Record.h */,
+				3906509118A56AC50092EFF5 /* Record.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -137,6 +148,7 @@
 		3965D46818972275000C7259 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3906508E18A568BA0092EFF5 /* CoreData.framework */,
 				3965D46918972275000C7259 /* Foundation.framework */,
 				3965D46B18972275000C7259 /* CoreGraphics.framework */,
 				3965D46D18972275000C7259 /* UIKit.framework */,
@@ -167,8 +179,10 @@
 				397C95E318A3293D002AE79B /* PageDataSourceViewController.m */,
 				3965D48118972275000C7259 /* ViewController.h */,
 				3965D48218972275000C7259 /* ViewController.m */,
-				3966619B1899B51D007851DF /* ImageViewController.h */,
-				3966619C1899B51D007851DF /* ImageViewController.m */,
+				3966619B1899B51D007851DF /* CoreViewController.h */,
+				3966619C1899B51D007851DF /* CoreViewController.m */,
+				39D8760318A57C2E00401BFA /* NameTableViewController.h */,
+				39D8760418A57C2E00401BFA /* NameTableViewController.m */,
 				39586B7F18A0519E00A95583 /* Model */,
 				3965D48418972275000C7259 /* Images.xcassets */,
 				3965D47018972275000C7259 /* Supporting Files */,
@@ -306,7 +320,8 @@
 			files = (
 				39586B7B18A0454E00A95583 /* TimerViewController2.m in Sources */,
 				39586B7818A042AC00A95583 /* TimerViewController.m in Sources */,
-				3966619D1899B51D007851DF /* ImageViewController.m in Sources */,
+				3906509218A56AC50092EFF5 /* Record.m in Sources */,
+				3966619D1899B51D007851DF /* CoreViewController.m in Sources */,
 				39586B7E18A0517200A95583 /* Model.xcdatamodeld in Sources */,
 				397C95E418A3293D002AE79B /* PageDataSourceViewController.m in Sources */,
 				3965D48318972275000C7259 /* ViewController.m in Sources */,
@@ -315,6 +330,7 @@
 				3965D47A18972275000C7259 /* AppDelegate.m in Sources */,
 				3965D47618972275000C7259 /* main.m in Sources */,
 				0CF8519A18A30F1000153D6A /* SwitchViewController.m in Sources */,
+				39D8760518A57C2E00401BFA /* NameTableViewController.m in Sources */,
 				3966615618977389007851DF /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
