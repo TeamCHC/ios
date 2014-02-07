@@ -10,4 +10,6 @@
 
 @interface SwitchViewController : UIViewController
 
+- (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer;
+
 @end
