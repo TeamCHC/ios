@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface PageDataSourceViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UILabel *pageLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *pageLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segControl;
 @property NSUInteger pageIndex;
 @property NSString *titleText;
+-(IBAction)changeSeg;
 @end

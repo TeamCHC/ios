@@ -23,10 +23,27 @@
     return self;
 }
 
+-(IBAction)changeSeg{
+	if(_segControl.selectedSegmentIndex == 0){
+        self.view.backgroundColor = [UIColor whiteColor];
+	}
+	if(_segControl.selectedSegmentIndex == 1){
+        self.view.backgroundColor = [UIColor blackColor];
+	}
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.pageLabel.text = self.titleText;
+    
+    UILabel *pageLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 140, 300, 30)];
+    pageLabel.text = self.titleText;
+    pageLabel.textColor = [UIColor redColor];
+    pageLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.view addSubview:pageLabel];
+    
+    //self.pageLabel.text = self.titleText;
 
 	// Do any additional setup after loading the view.
 }

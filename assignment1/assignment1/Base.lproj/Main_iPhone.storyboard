@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xfx-3g-1dO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1506" y="-48"/>
+            <point key="canvasLocation" x="1762" y="-56"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ax4-nc-GoZ">
@@ -277,18 +277,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpv-QZ-cA8">
-                                <rect key="frame" x="79" y="120" width="150" height="50"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ucQ-Nr-HEV">
+                                <rect key="frame" x="111" y="212" width="99" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <segments>
+                                    <segment title="White"/>
+                                    <segment title="Black"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeSeg" destination="ftR-Ue-Q3R" eventType="valueChanged" id="px1-bd-3pp"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="ucQ-Nr-HEV" secondAttribute="centerX" constant="-0.5" id="0OJ-0v-47k"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="pageLabel" destination="cpv-QZ-cA8" id="TKM-DY-Pqa"/>
+                        <outlet property="segControl" destination="ucQ-Nr-HEV" id="Wki-G1-gFc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EoZ-TD-dw2" userLabel="First Responder" sceneMemberID="firstResponder"/>
