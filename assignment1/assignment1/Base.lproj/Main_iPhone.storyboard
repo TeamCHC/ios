@@ -446,8 +446,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFu-SY-oMK">
-                                <rect key="frame" x="143" y="237" width="35" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFu-SY-oMK">
+                                <rect key="frame" x="143" y="226" width="35" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -456,16 +456,21 @@
                                     <action selector="backAction:" destination="jOa-Be-ub9" eventType="touchUpInside" id="dXd-1V-i0d"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="Alarm-Clock-256.png" translatesAutoresizingMaskIntoConstraints="NO" id="0PJ-fc-0c8">
-                                <rect key="frame" x="109" y="133" width="103" height="87"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Alarm-Clock-256.png" translatesAutoresizingMaskIntoConstraints="NO" id="0PJ-fc-0c8">
+                                <rect key="frame" x="109" y="103" width="103" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="7wd-cG-Acg"/>
+                                    <constraint firstAttribute="width" constant="85" id="aIU-ce-FpF"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0PJ-fc-0c8" firstAttribute="centerX" secondItem="VFu-SY-oMK" secondAttribute="centerX" id="38V-NE-vCh"/>
-                            <constraint firstItem="VFu-SY-oMK" firstAttribute="top" secondItem="0PJ-fc-0c8" secondAttribute="bottom" constant="17" id="8Ph-Sa-aHn"/>
                             <constraint firstAttribute="centerX" secondItem="0PJ-fc-0c8" secondAttribute="centerX" constant="-0.5" id="hlK-Tj-dbL"/>
+                            <constraint firstItem="0PJ-fc-0c8" firstAttribute="top" secondItem="m0c-0Y-cE1" secondAttribute="bottom" constant="172" id="y3n-SM-79e"/>
+                            <constraint firstItem="0PJ-fc-0c8" firstAttribute="top" secondItem="m0c-0Y-cE1" secondAttribute="bottom" constant="83" id="yYa-4Z-8zo"/>
                         </constraints>
                     </view>
                 </viewController>
