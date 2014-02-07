@@ -39,6 +39,8 @@
     return 3;
 }
 
+/* Started tutorial http://www.raywenderlich.com/6567/uigesturerecognizer-tutorial-in-ios-5-pinches-pans-and-more for zoom control, but did not quite finish. There is a pan gesture recognizer on the pony, and the handle pan function. */
+
 - (IBAction)handlePan:(UIPanGestureRecognizer *)recognizer {
     
     CGPoint translation = [recognizer translationInView:self.view];
