@@ -24,13 +24,13 @@ struct point {
 
 struct GraphBounds{
     float   top,
-            bottom,
-            left,
-            right,
-            center,
-            middle,
-            width,
-            height;
+    bottom,
+    left,
+    right,
+    center,
+    middle,
+    width,
+    height;
     
     GraphBounds(float inBottom=-1.0,float inTop=1.0,float inLeft=-1.0, float inRight=1.0){
         top = inTop;
@@ -53,7 +53,7 @@ struct GraphBounds{
         width = right-left;
         height = top-bottom;
     }
-
+    
 };
 
 struct GraphData{
@@ -164,7 +164,7 @@ public:
         // setup each line for OpenGL graphing
         for(int k=0;k<numGraphs;k++){
             graphs[k].SetColor(k);
-
+            
             glGenBuffers(1, &vbo[k]);
             glBindBuffer(GL_ARRAY_BUFFER, vbo[k]);
             glBufferData(GL_ARRAY_BUFFER, sizeof(graphs[k].points), graphs[k].points, GL_DYNAMIC_DRAW);
@@ -174,64 +174,65 @@ public:
             glBufferData(GL_ARRAY_BUFFER, sizeof(graphs[k].colors), graphs[k].colors, GL_STATIC_DRAW);
         }
         
-//        glGenBuffers(1, &vertexTex);
-//        glBindBuffer(GL_ARRAY_BUFFER, vertexTex);
-//        glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
-//        
-//        NSError *theError;
-//        NSDictionary * options = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithBool:YES],GLKTextureLoaderOriginBottomLeft, nil];
-//        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"oscilloscope" ofType:@"png"];
-//        spriteTexture = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:&theError];
-//        if (spriteTexture == nil || theError) {
-//            NSLog(@"Error loading file: %@", [theError localizedDescription]);
-//        }
-//        
-//        glBindTexture(spriteTexture.target, spriteTexture.name);
+        //        glGenBuffers(1, &vertexTex);
+        //        glBindBuffer(GL_ARRAY_BUFFER, vertexTex);
+        //        glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
+        //
+        //        NSError *theError;
+        //        NSDictionary * options = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithBool:YES],GLKTextureLoaderOriginBottomLeft, nil];
+        //        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"oscilloscope" ofType:@"png"];
+        //        spriteTexture = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:&theError];
+        //        if (spriteTexture == nil || theError) {
+        //            NSLog(@"Error loading file: %@", [theError localizedDescription]);
+        //        }
+        //
+        //        glBindTexture(spriteTexture.target, spriteTexture.name);
         
     }
     
     void SetBounds(float bottom=-1.0,float top=1.0,float left=-1.0, float right=1.0){
         bounds->SetBounds(bottom,top,left,right);
     }
-
+    
     ~GraphHelper(){
         
-        [EAGLContext setCurrentContext:context];
-        for(int k=0;k<numGraphs;k++){
-            glDeleteBuffers(1, &vbo[k]);
-            glDeleteBuffers(1, &color[k]);
-        }
-        effect = nil;
-        
-        delete [] graphs;
-        delete [] vbo;
-        delete [] color;
+        tearDownGL();
     }
     
     void tearDownGL() {
         
         [EAGLContext setCurrentContext:context];
         
-        for(int k=0;k<numGraphs;k++){
-            glDeleteBuffers(1, &vbo[k]);
-            glDeleteBuffers(1, &color[k]);
+        if( vbo!=nil && color!=nil ){
+            for(int k=0;k<numGraphs;k++){
+                glDeleteBuffers(1, &vbo[k]);
+                glDeleteBuffers(1, &color[k]);
+            }
+            delete [] vbo;
+            delete [] color;
         }
         
         effect = nil;
         
-        delete [] graphs;
-        delete [] vbo;
-        delete [] color;
+        if(graphs!=nil)
+            delete [] graphs;
+        if(bounds!=nil)
+            delete bounds;
+        
+        graphs = nil;
+        vbo= nil;
+        color=nil;
+        bounds=nil;
         
     }
     
     
-
+    
     void update(){
         GLKMatrix4 modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, 0.0f);
         effect.transform.modelviewMatrix = modelViewMatrix;
     }
-
+    
     void setGraphData(int arrayNum, float *data, int dataLength, float normalization = 1.0, float minValue = 0.0){
         
         if(data==NULL){
@@ -269,14 +270,14 @@ public:
             graphs[arrayNum].points[i].y = (((data[i]-minValue) / normalization) + addToPlot) + bounds->middle;
         }
     }
-
+    
     void draw(){
-
+        
         // Clear the view
         glClear(GL_COLOR_BUFFER_BIT);
         
         effect.useConstantColor = GL_FALSE;
-
+        
         
         [effect prepareToDraw];
         
@@ -304,7 +305,7 @@ public:
                                   GL_FALSE,
                                   0,
                                   0);
-
+            
             glDrawArrays(GL_LINE_STRIP, 0, graphs[k].graphSize); // just draw the data that was sent in
             
             glDisableVertexAttribArray(GLKVertexAttribPosition);
@@ -318,31 +319,31 @@ public:
         //glDisableVertexAttribArray(GLKVertexAttribPosition);
         //glBindBuffer(GL_ARRAY_BUFFER, 0);
         
-//		glBindBuffer(GL_ARRAY_BUFFER, vertexTex);
-//        glEnableVertexAttribArray(GLKVertexAttribPosition);
-//        
-//        glVertexAttribPointer(GLKVertexAttribPosition,
-//                              2,
-//                              GL_FLOAT,
-//                              GL_FALSE,
-//                              sizeof(Vertices),
-//                              (void *) (offsetof(Vertex, Position)));
-//        
-//        glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
-//		glVertexAttribPointer(GLKVertexAttribTexCoord0,
-//                              2,
-//                              GL_FLOAT,
-//                              GL_FALSE,
-//                              sizeof(Vertices),
-//                              (void *) (offsetof(Vertex, TexCoord)));
-//        
-//        
-//        
-//		glDrawArrays(GL_TRIANGLE_STRIP, 0, 3);
-//        
-//        glDisableVertexAttribArray(GLKVertexAttribPosition);
-//        glDisableVertexAttribArray(GLKVertexAttribTexCoord0);
-//        glDisableVertexAttribArray(GLKVertexAttribColor);
+        //		glBindBuffer(GL_ARRAY_BUFFER, vertexTex);
+        //        glEnableVertexAttribArray(GLKVertexAttribPosition);
+        //
+        //        glVertexAttribPointer(GLKVertexAttribPosition,
+        //                              2,
+        //                              GL_FLOAT,
+        //                              GL_FALSE,
+        //                              sizeof(Vertices),
+        //                              (void *) (offsetof(Vertex, Position)));
+        //
+        //        glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
+        //		glVertexAttribPointer(GLKVertexAttribTexCoord0,
+        //                              2,
+        //                              GL_FLOAT,
+        //                              GL_FALSE,
+        //                              sizeof(Vertices),
+        //                              (void *) (offsetof(Vertex, TexCoord)));
+        //
+        //
+        //
+        //		glDrawArrays(GL_TRIANGLE_STRIP, 0, 3);
+        //
+        //        glDisableVertexAttribArray(GLKVertexAttribPosition);
+        //        glDisableVertexAttribArray(GLKVertexAttribTexCoord0);
+        //        glDisableVertexAttribArray(GLKVertexAttribColor);
     }
     
 private:
