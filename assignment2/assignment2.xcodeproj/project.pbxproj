@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39D49E2518B5713A00063D09 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D49E2418B5713A00063D09 /* TableViewController.m */; };
 		39DE762A18AD9836003C3711 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DE762918AD9836003C3711 /* GLKit.framework */; };
 		39DE762C18AD983D003C3711 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DE762B18AD983D003C3711 /* AVFoundation.framework */; };
 		39E298EE18AEB403005F5939 /* AudioFileReader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 39E298E918AEB403005F5939 /* AudioFileReader.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39D49E2318B5713A00063D09 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		39D49E2418B5713A00063D09 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		39DE762918AD9836003C3711 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		39DE762B18AD983D003C3711 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		39E298E818AEB403005F5939 /* AudioFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioFileReader.h; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				39F5935718AC32CC00E07AD7 /* Main.storyboard */,
 				39F5935A18AC32CC00E07AD7 /* ViewController.h */,
 				39F5935B18AC32CC00E07AD7 /* ViewController.mm */,
+				39D49E2318B5713A00063D09 /* TableViewController.h */,
+				39D49E2418B5713A00063D09 /* TableViewController.m */,
 				39F5937C18AC34C000E07AD7 /* HelperFiles */,
 				39F5935D18AC32CC00E07AD7 /* Images.xcassets */,
 				39F5934C18AC32CC00E07AD7 /* Supporting Files */,
@@ -300,6 +305,7 @@
 				39E298EF18AEB403005F5939 /* AudioFileWriter.m in Sources */,
 				39F5935218AC32CC00E07AD7 /* main.m in Sources */,
 				39E298EE18AEB403005F5939 /* AudioFileReader.mm in Sources */,
+				39D49E2518B5713A00063D09 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -67,11 +67,11 @@ float *fftPhaseBuffer;
     [super viewWillAppear:animated];
     
     
-    [audioManager setInputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
-     {
-         if(ringBuffer!=nil)
-             ringBuffer->AddNewFloatData(data, numFrames);
-     }];
+//    [audioManager setInputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
+//     {
+//         if(ringBuffer!=nil)
+//             ringBuffer->AddNewFloatData(data, numFrames);
+//     }];
     
         __block float frequency = 261.0; //starting frequency
         __block float phase = 0.0;
