@@ -31,6 +31,7 @@ float *audioData;
 SMUFFTHelper *fftHelper;
 float *fftMagnitudeBuffer;
 float *fftPhaseBuffer;
+float frequency = 16000.0; //starting frequency
 
 
 #pragma mark - loading and appear
@@ -63,39 +64,46 @@ float *fftPhaseBuffer;
     
 }
 
+// action connected with slider to set frequency value
+- (IBAction)sliderValue:(UISlider *)sender {
+    frequency = sender.value;
+    NSLog(@"frequency is %f", frequency);
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
     
-//    [audioManager setInputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
-//     {
-//         if(ringBuffer!=nil)
-//             ringBuffer->AddNewFloatData(data, numFrames);
-//     }];
+    // still taking in audio with our set frequency
+    [audioManager setInputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
+     {
+         if(ringBuffer!=nil)
+             ringBuffer->AddNewFloatData(data, numFrames);
+     }];
     
-        __block float frequency = 261.0; //starting frequency
-        __block float phase = 0.0;
-        __block float samplingRate = audioManager.samplingRate;
     
-        [audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
+    __block float phase = 0.0;
+    __block float samplingRate = audioManager.samplingRate;
+    
+    [audioManager setOutputBlock:^(float *data, UInt32 numFrames, UInt32 numChannels)
+     {
+         
+         double phaseIncrement = 2*M_PI*frequency/samplingRate;
+         double repeatMax = 2*M_PI;
+         for (int i=0; i < numFrames; ++i)
          {
-    
-             double phaseIncrement = 2*M_PI*frequency/samplingRate;
-             double repeatMax = 2*M_PI;
-             for (int i=0; i < numFrames; ++i)
-             {
-                 for(int j=0;j<numChannels;j++){
-                     data[i*numChannels+j] = 0.8*sin(phase);
-    
-                 }
-                 phase += phaseIncrement;
-    
-                 if(phase>repeatMax)
-                     phase -= repeatMax;
+             for(int j=0;j<numChannels;j++){
+                 data[i*numChannels+j] = 0.8*sin(phase);
+                 
              }
-
-    
-         }];
+             phase += phaseIncrement;
+             
+             if(phase>repeatMax)
+                 phase -= repeatMax;
+         }
+         
+         
+     }];
     
 }
 
@@ -136,6 +144,9 @@ float *fftPhaseBuffer;
 //  override the GLKViewController update function, from OpenGLES
 - (void)update{
     
+    // calculate index of the freq the slider is at, then open window by 10
+    int index = (frequency * kBufferLength/audioManager.samplingRate) - 10;
+    
     // plot the audio
     ringBuffer->FetchFreshData2(audioData, kBufferLength, 0, 1);
     graphHelper->setGraphData(0,audioData,kBufferLength); // set graph channel
@@ -144,14 +155,14 @@ float *fftPhaseBuffer;
     fftHelper->forward(0,audioData, fftMagnitudeBuffer, fftPhaseBuffer);
     
     // plot the FFT
-    graphHelper->setGraphData(1,fftMagnitudeBuffer,kBufferLength/2,sqrt(kBufferLength)); // set graph channel
+    graphHelper->setGraphData(1,&fftMagnitudeBuffer[index],(kBufferLength/2)-index,sqrt(kBufferLength)); // set graph channel
     
     graphHelper->update(); // update the graph
 }
 
 #pragma mark - status bar
 -(BOOL)prefersStatusBarHidden{
-    return YES; // Should this be no so that you can go back to the table view? 
+    return YES; // Should this be no so that you can go back to the table view?
 }
 
 @end
