@@ -18,6 +18,9 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *frequencyButton;
+
+
 @end
 
 @implementation ViewController
@@ -32,6 +35,12 @@ SMUFFTHelper *fftHelper;
 float *fftMagnitudeBuffer;
 float *fftPhaseBuffer;
 float frequency = 16000.0; //starting frequency
+
+float magAwayArray[10];
+float magTowardArray[10];
+float sumAway = 0;
+float sumToward = 0;
+float myAverage = 0;
 
 
 #pragma mark - loading and appear
@@ -67,7 +76,7 @@ float frequency = 16000.0; //starting frequency
 // action connected with slider to set frequency value
 - (IBAction)sliderValue:(UISlider *)sender {
     frequency = sender.value;
-    NSLog(@"frequency is %f", frequency);
+    _frequencyButton.text = [NSString stringWithFormat:@"%.2f kHz",sender.value/1000];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -145,7 +154,7 @@ float frequency = 16000.0; //starting frequency
 - (void)update{
     
     // calculate index of the freq the slider is at, then open window by 10
-    int index = (frequency * kBufferLength/audioManager.samplingRate) - 10;
+    int index = (frequency * kBufferLength/audioManager.samplingRate);
     
     // plot the audio
     ringBuffer->FetchFreshData2(audioData, kBufferLength, 0, 1);
@@ -155,14 +164,27 @@ float frequency = 16000.0; //starting frequency
     fftHelper->forward(0,audioData, fftMagnitudeBuffer, fftPhaseBuffer);
     
     // plot the FFT
-    graphHelper->setGraphData(1,&fftMagnitudeBuffer[index],(kBufferLength/2)-index,sqrt(kBufferLength)); // set graph channel
+    graphHelper->setGraphData(1,&fftMagnitudeBuffer[index-10],(kBufferLength/2)-index,sqrt(kBufferLength)); // set graph channel
     
     graphHelper->update(); // update the graph
+    
+    
+    for (int i=9; i>-1; i--) {
+        magAwayArray[i] = fftMagnitudeBuffer[index-i];
+        sumAway = sumAway + magAwayArray[i];
+    }
+    for (int i=0;i<10;i++) {
+        magTowardArray[i] = fftMagnitudeBuffer[index+i];
+        sumToward = sumToward + magTowardArray[i];
+    }
+    myAverage = (sumAway/10)/(sumToward/10);
+    NSLog(@"My average is %.2f",myAverage);
+    
 }
 
 #pragma mark - status bar
 -(BOOL)prefersStatusBarHidden{
-    return YES; // Should this be no so that you can go back to the table view?
+    return YES;
 }
 
 @end
