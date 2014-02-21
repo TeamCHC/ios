@@ -144,10 +144,13 @@ float thresHoldMovingAwayFromPhone = 0.95;
     
 }
 
+
 #pragma mark - unloading and dealloc
 -(void) viewDidDisappear:(BOOL)animated{
     // stop opengl from running
     graphHelper->tearDownGL();
+    
+    [audioManager setOutputBlock:nil];
 }
 
 -(void)dealloc{
