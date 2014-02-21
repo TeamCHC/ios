@@ -188,8 +188,8 @@ float myAverage = 0;
     }
     if(myAverage < 0.85)//moving away from phone
         _gestureLabel.text = [NSString stringWithFormat:@"Gesturing Away"];
-    else//not moving near phone at all
-        _gestureLabel.text = [NSString stringWithFormat:@"Not Gesturing"];
+    /*else//not moving near phone at all
+        _gestureLabel.text = [NSString stringWithFormat:@"Not Gesturing"];*/
     
 }
 
