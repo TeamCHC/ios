@@ -5,31 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-<<<<<<< HEAD
-	<string>4B8C365D-712C-4E1D-8604-4A7D8B51A1F7</string>
-=======
-	<string>72787565-981D-47E8-B1FD-B841543175FF</string>
->>>>>>> 3a3a5289a57790c1e15a9ee760481946c6d66ddc
+	<string>7727ABD4-D6CB-4A56-863F-2EEB99AC0C5D</string>
 	<key>IDESourceControlProjectName</key>
 	<string>assignment2</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-<<<<<<< HEAD
 		<key>1799A0E8-9AD7-4A10-B543-4A45EE9133AD</key>
-=======
-		<key>0D309904-3040-4B94-997C-58C362CA94BB</key>
->>>>>>> 3a3a5289a57790c1e15a9ee760481946c6d66ddc
 		<string>https://github.com/TeamCHC/ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>assignment2/assignment2.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-<<<<<<< HEAD
 		<key>1799A0E8-9AD7-4A10-B543-4A45EE9133AD</key>
-=======
-		<key>0D309904-3040-4B94-997C-58C362CA94BB</key>
->>>>>>> 3a3a5289a57790c1e15a9ee760481946c6d66ddc
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -37,22 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-<<<<<<< HEAD
 	<string>1799A0E8-9AD7-4A10-B543-4A45EE9133AD</string>
-=======
-	<string>0D309904-3040-4B94-997C-58C362CA94BB</string>
->>>>>>> 3a3a5289a57790c1e15a9ee760481946c6d66ddc
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-<<<<<<< HEAD
 			<string>1799A0E8-9AD7-4A10-B543-4A45EE9133AD</string>
-=======
-			<string>0D309904-3040-4B94-997C-58C362CA94BB</string>
->>>>>>> 3a3a5289a57790c1e15a9ee760481946c6d66ddc
 			<key>IDESourceControlWCCName</key>
 			<string>ios</string>
 		</dict>

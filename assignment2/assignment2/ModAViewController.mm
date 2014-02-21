@@ -15,7 +15,7 @@
 
 
 #define kBufferLengthA 4096
-#define localMaxWindowSize 5
+#define localMaxWindowSize 7
 
 
 @interface ModAViewController ()
