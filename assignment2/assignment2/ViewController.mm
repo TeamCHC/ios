@@ -151,7 +151,7 @@ float *fftPhaseBuffer;
 
 #pragma mark - status bar
 -(BOOL)prefersStatusBarHidden{
-    return YES;
+    return YES; // Should this be no so that you can go back to the table view? 
 }
 
 @end
