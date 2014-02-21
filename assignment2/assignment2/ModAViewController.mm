@@ -184,7 +184,7 @@ float *fftPhaseBufferA;
         
         //inner loop to go through current window
         for(int m = n; m <= n+localMaxWindowSize; m++)
-        {
+        { 
             //find max in current window
             if(fftMagnitudeBufferA[m] > magTemp)
             {
