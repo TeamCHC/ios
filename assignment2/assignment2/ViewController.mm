@@ -43,6 +43,7 @@ float sumAway = 0;
 float sumToward = 0;
 float myAverage = 0;
 
+int counter = 0;
 
 #pragma mark - loading and appear
 - (void)viewDidLoad
@@ -187,9 +188,15 @@ float myAverage = 0;
         _gestureLabel.text = [NSString stringWithFormat:@"Gesturing Forward"];
     }
     if(myAverage < 0.85)//moving away from phone
+    {
         _gestureLabel.text = [NSString stringWithFormat:@"Gesturing Away"];
-    /*else//not moving near phone at all
-        _gestureLabel.text = [NSString stringWithFormat:@"Not Gesturing"];*/
+    }
+    else if(counter >= 30)//not moving near phone at all
+    {
+        _gestureLabel.text = [NSString stringWithFormat:@"Not Gesturing"];
+        counter = 0;
+    }
+    counter ++;
     
 }
 
