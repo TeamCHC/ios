@@ -15,6 +15,8 @@
 
 
 #define kBufferLength 4096
+//#define thresHoldMovingTowardsPhone 1.4
+//#define thresHoldMovingAwayFromPhone 0.95
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *gestureLabel;
@@ -44,6 +46,9 @@ float sumToward = 0;
 float myAverage = 0;
 
 int counter = 0;
+
+float thresHoldMovingTowardsPhone = 1.4;
+float thresHoldMovingAwayFromPhone = 0.95;
 
 #pragma mark - loading and appear
 - (void)viewDidLoad
@@ -79,6 +84,27 @@ int counter = 0;
 - (IBAction)sliderValue:(UISlider *)sender {
     frequency = sender.value;
     _frequencyButton.text = [NSString stringWithFormat:@"%.2f kHz",sender.value/1000];
+    /*if(sender.value < 19070 && sender.value > 18700)
+    {
+        thresHoldMovingTowardsPhone = 1.8;
+        thresHoldMovingAwayFromPhone = 0.98;
+    }
+    if(sender.value < 16440 && sender.value > 16050)
+    {
+        thresHoldMovingTowardsPhone = 1.8;
+        thresHoldMovingAwayFromPhone = 0.98;
+    }
+    if(sender.value < 16880 && sender.value > 16660)
+    {
+        thresHoldMovingTowardsPhone = 1.8;
+        thresHoldMovingAwayFromPhone = 0.98;
+    }
+
+    else
+    {
+        thresHoldMovingTowardsPhone = 1.3;
+        thresHoldMovingAwayFromPhone = 0.85;
+    }*/
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -172,6 +198,7 @@ int counter = 0;
     
     sumAway = 0;
     sumToward = 0;
+    myAverage = 1;
     
     
     for (int i=9; i>-1; i--) {
@@ -183,15 +210,15 @@ int counter = 0;
         sumToward = sumToward + magTowardArray[i];
     }
     myAverage = (sumToward/10)/(sumAway/10);
-    if(myAverage > 1.15)//moving towards phone
+    if(myAverage > thresHoldMovingTowardsPhone && counter >= 15)//moving towards phone
     {
         _gestureLabel.text = [NSString stringWithFormat:@"Gesturing Forward"];
     }
-    if(myAverage < 0.85)//moving away from phone
+    else if(myAverage < thresHoldMovingAwayFromPhone && counter >= 15)//moving away from phone
     {
         _gestureLabel.text = [NSString stringWithFormat:@"Gesturing Away"];
     }
-    else if(counter >= 30)//not moving near phone at all
+    else if(counter >= 45)//not moving near phone at all
     {
         _gestureLabel.text = [NSString stringWithFormat:@"Not Gesturing"];
         counter = 0;

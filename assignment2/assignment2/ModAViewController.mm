@@ -214,7 +214,7 @@ float *fftPhaseBufferA;
         }
     }
     
-    if(fftMagnitudeBufferA[ind1] > .2 && fftMagnitudeBufferA[ind2] > .2)
+    if(fftMagnitudeBufferA[ind1] > .8 && fftMagnitudeBufferA[ind2] > .8)
     {
         NSLog(@"The loudest frequency is: %.2f Hz",(ind1*(audioManagerA.samplingRate/kBufferLengthA)));
         _firstValue.text = [NSString stringWithFormat:@"%.2f",ind1*(audioManagerA.samplingRate/kBufferLengthA)];
