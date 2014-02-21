@@ -17,6 +17,7 @@
 #define kBufferLength 4096
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *gestureLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *frequencyButton;
 
@@ -168,6 +169,9 @@ float myAverage = 0;
     
     graphHelper->update(); // update the graph
     
+    sumAway = 0;
+    sumToward = 0;
+    
     
     for (int i=9; i>-1; i--) {
         magAwayArray[i] = fftMagnitudeBuffer[index-i];
@@ -177,8 +181,15 @@ float myAverage = 0;
         magTowardArray[i] = fftMagnitudeBuffer[index+i];
         sumToward = sumToward + magTowardArray[i];
     }
-    myAverage = (sumAway/10)/(sumToward/10);
-    NSLog(@"My average is %.2f",myAverage);
+    myAverage = (sumToward/10)/(sumAway/10);
+    if(myAverage > 1.15)//moving towards phone
+    {
+        _gestureLabel.text = [NSString stringWithFormat:@"Gesturing Forward"];
+    }
+    if(myAverage < 0.85)//moving away from phone
+        _gestureLabel.text = [NSString stringWithFormat:@"Gesturing Away"];
+    else//not moving near phone at all
+        _gestureLabel.text = [NSString stringWithFormat:@"Not Gesturing"];
     
 }
 
