@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CEA88F418B6B123005E60F3 /* ModAViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA88F318B6B123005E60F3 /* ModAViewController.mm */; };
 		39D49E2518B5713A00063D09 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D49E2418B5713A00063D09 /* TableViewController.m */; };
 		39DE762A18AD9836003C3711 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DE762918AD9836003C3711 /* GLKit.framework */; };
 		39DE762C18AD983D003C3711 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39DE762B18AD983D003C3711 /* AVFoundation.framework */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CEA88F218B6B123005E60F3 /* ModAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModAViewController.h; sourceTree = "<group>"; };
+		0CEA88F318B6B123005E60F3 /* ModAViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ModAViewController.mm; sourceTree = "<group>"; };
 		39D49E2318B5713A00063D09 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		39D49E2418B5713A00063D09 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		39DE762918AD9836003C3711 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -141,6 +144,8 @@
 			children = (
 				39F5935418AC32CC00E07AD7 /* AppDelegate.h */,
 				39F5935518AC32CC00E07AD7 /* AppDelegate.m */,
+				0CEA88F218B6B123005E60F3 /* ModAViewController.h */,
+				0CEA88F318B6B123005E60F3 /* ModAViewController.mm */,
 				39F5935718AC32CC00E07AD7 /* Main.storyboard */,
 				39F5935A18AC32CC00E07AD7 /* ViewController.h */,
 				39F5935B18AC32CC00E07AD7 /* ViewController.mm */,
@@ -247,6 +252,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = SMU;
 				TargetAttributes = {
+					39F5934118AC32CC00E07AD7 = {
+						DevelopmentTeam = APD62CDC25;
+					};
 					39F5936218AC32CC00E07AD7 = {
 						TestTargetID = 39F5934118AC32CC00E07AD7;
 					};
@@ -299,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39F5935C18AC32CC00E07AD7 /* ViewController.mm in Sources */,
+				0CEA88F418B6B123005E60F3 /* ModAViewController.mm in Sources */,
 				39F5935618AC32CC00E07AD7 /* AppDelegate.m in Sources */,
 				39E298F018AEB403005F5939 /* Novocaine.m in Sources */,
 				39E298F318AEB40E005F5939 /* RingBuffer.mm in Sources */,
@@ -432,6 +441,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "assignment2/assignment2-Prefix.pch";
 				INFOPLIST_FILE = "assignment2/assignment2-Info.plist";
@@ -445,6 +455,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "assignment2/assignment2-Prefix.pch";
 				INFOPLIST_FILE = "assignment2/assignment2-Info.plist";
