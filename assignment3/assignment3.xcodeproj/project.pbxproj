@@ -21,6 +21,8 @@
 		399E098C18BBF53F00D76851 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399E096E18BBF53F00D76851 /* UIKit.framework */; };
 		399E099418BBF53F00D76851 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 399E099218BBF53F00D76851 /* InfoPlist.strings */; };
 		399E099618BBF53F00D76851 /* assignment3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 399E099518BBF53F00D76851 /* assignment3Tests.m */; };
+		399E09A318BD43E800D76851 /* APLGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 399E09A018BD43E800D76851 /* APLGraphView.m */; };
+		399E09A418BD43E800D76851 /* MotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 399E09A218BD43E800D76851 /* MotionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		399E099118BBF53F00D76851 /* assignment3Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "assignment3Tests-Info.plist"; sourceTree = "<group>"; };
 		399E099318BBF53F00D76851 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		399E099518BBF53F00D76851 /* assignment3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = assignment3Tests.m; sourceTree = "<group>"; };
+		399E099F18BD43E800D76851 /* APLGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLGraphView.h; sourceTree = "<group>"; };
+		399E09A018BD43E800D76851 /* APLGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLGraphView.m; sourceTree = "<group>"; };
+		399E09A118BD43E800D76851 /* MotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionViewController.h; sourceTree = "<group>"; };
+		399E09A218BD43E800D76851 /* MotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,10 @@
 				399E097C18BBF53F00D76851 /* Main.storyboard */,
 				399E097F18BBF53F00D76851 /* ViewController.h */,
 				399E098018BBF53F00D76851 /* ViewController.m */,
+				399E099F18BD43E800D76851 /* APLGraphView.h */,
+				399E09A018BD43E800D76851 /* APLGraphView.m */,
+				399E09A118BD43E800D76851 /* MotionViewController.h */,
+				399E09A218BD43E800D76851 /* MotionViewController.m */,
 				399E098218BBF53F00D76851 /* Images.xcassets */,
 				399E097118BBF53F00D76851 /* Supporting Files */,
 			);
@@ -249,9 +259,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				399E09A418BD43E800D76851 /* MotionViewController.m in Sources */,
 				399E098118BBF53F00D76851 /* ViewController.m in Sources */,
 				399E097B18BBF53F00D76851 /* AppDelegate.m in Sources */,
 				399E097718BBF53F00D76851 /* main.m in Sources */,
+				399E09A318BD43E800D76851 /* APLGraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

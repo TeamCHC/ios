@@ -1,21 +1,77 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="UjH-ae-JSh">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--Motion View Controller-->
+        <scene sceneID="74W-cO-qKe">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                <viewController id="UjH-ae-JSh" customClass="MotionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XCY-yj-VJA"/>
+                        <viewControllerLayoutGuide type="bottom" id="ySX-1f-k4E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Scr-qy-Agg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <slider opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rSN-nX-AuB">
+                                <rect key="frame" x="18" y="33" width="284" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="Asa-dt-Kf5"/>
+                                </constraints>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubl-q7-HPJ">
+                                <rect key="frame" x="20" y="95" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Running: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8v-sn-xfa">
+                                <rect key="frame" x="20" y="124" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ibu-3U-xZX" customClass="APLGraphView">
+                                <rect key="frame" x="0.0" y="201" width="320" height="166"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="166" id="wfR-uK-aeY"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="I8v-sn-xfa" firstAttribute="leading" secondItem="Scr-qy-Agg" secondAttribute="leading" constant="20" id="A86-bo-v0d"/>
+                            <constraint firstAttribute="trailing" secondItem="ibu-3U-xZX" secondAttribute="trailing" id="Fmv-vI-onY"/>
+                            <constraint firstItem="ibu-3U-xZX" firstAttribute="leading" secondItem="Scr-qy-Agg" secondAttribute="leading" id="Ivv-hg-isw"/>
+                            <constraint firstItem="Ubl-q7-HPJ" firstAttribute="leading" secondItem="rSN-nX-AuB" secondAttribute="leading" id="Noc-CC-8M4"/>
+                            <constraint firstItem="rSN-nX-AuB" firstAttribute="leading" secondItem="Scr-qy-Agg" secondAttribute="leading" constant="20" id="Pyr-Yu-oDX"/>
+                            <constraint firstItem="Ubl-q7-HPJ" firstAttribute="top" secondItem="rSN-nX-AuB" secondAttribute="bottom" constant="29" id="Y9F-Jg-TXv"/>
+                            <constraint firstAttribute="trailing" secondItem="rSN-nX-AuB" secondAttribute="trailing" constant="20" id="aAN-Dm-eDq"/>
+                            <constraint firstItem="I8v-sn-xfa" firstAttribute="top" secondItem="Ubl-q7-HPJ" secondAttribute="bottom" constant="8" id="dmg-xl-8Q2"/>
+                            <constraint firstItem="ibu-3U-xZX" firstAttribute="centerY" secondItem="Scr-qy-Agg" secondAttribute="centerY" id="uDd-7E-ZQD"/>
+                            <constraint firstItem="rSN-nX-AuB" firstAttribute="top" secondItem="XCY-yj-VJA" secondAttribute="bottom" constant="13" id="yh7-iX-fY8"/>
+                            <constraint firstItem="Ubl-q7-HPJ" firstAttribute="trailing" secondItem="rSN-nX-AuB" secondAttribute="trailing" id="ykT-C4-xLy"/>
+                            <constraint firstAttribute="trailing" secondItem="I8v-sn-xfa" secondAttribute="trailing" constant="20" id="zOr-Fs-keY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="graphView" destination="ibu-3U-xZX" id="Z9O-pE-urB"/>
+                        <outlet property="labelForSteps" destination="Ubl-q7-HPJ" id="VTg-Sf-gsx"/>
+                        <outlet property="labelIsRunning" destination="I8v-sn-xfa" id="Qfw-U1-ySj"/>
+                        <outlet property="stepCountSlider" destination="rSN-nX-AuB" id="lVA-2B-diE"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jcb-nQ-QQm" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-37" y="115"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
