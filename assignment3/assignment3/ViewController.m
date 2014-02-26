@@ -25,27 +25,27 @@
 //        [motionManager startDeviceMotionUpdates];
 //        CMDeviceMotion *motion = motionManager.deviceMotion;
 //    }
-    
-    self.mManager = [[CMMotionManager alloc] init];
-    
-    if([self.mManager isDeviceMotionAvailable])
-    {
-        
-        [self.mManager setDeviceMotionUpdateInterval:1.0/100.0];
-        [self.mManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue]
-                                           withHandler:^(CMDeviceMotion *deviceMotion, NSError *error) {
-                                               
-                                               //Access to all the data…
-                                               NSLog(@"attitude: %@ rotationRate: %d gravity: %f useracceleration: %f %f"
-                                                    ,deviceMotion.attitude,
-                                               deviceMotion.rotationRate, 
-                                               deviceMotion.gravity, 
-                                               deviceMotion.userAcceleration, 
-                                               deviceMotion.magneticField);
-                                               
-                                               
-                                           }]; 
-    }
+//    
+//    self.mManager = [[CMMotionManager alloc] init];
+//    
+//    if([self.mManager isDeviceMotionAvailable])
+//    {
+//        
+//        [self.mManager setDeviceMotionUpdateInterval:1.0/100.0];
+//        [self.mManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue]
+//                                           withHandler:^(CMDeviceMotion *deviceMotion, NSError *error) {
+//                                               
+//                                               //Access to all the data…
+//                                               NSLog(@"attitude: %@ rotationRate: %d gravity: %f useracceleration: %f %f"
+//                                                    ,deviceMotion.attitude,
+//                                               deviceMotion.rotationRate, 
+//                                               deviceMotion.gravity, 
+//                                               deviceMotion.userAcceleration, 
+//                                               deviceMotion.magneticField);
+//                                               
+//                                               
+//                                           }]; 
+//    }
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
