@@ -45,6 +45,12 @@
                                     <constraint firstAttribute="height" constant="166" id="wfR-uK-aeY"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3PZ-qf-BU1">
+                                <rect key="frame" x="52" y="441" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -65,6 +71,7 @@
                     <connections>
                         <outlet property="graphView" destination="ibu-3U-xZX" id="Z9O-pE-urB"/>
                         <outlet property="labelForSteps" destination="Ubl-q7-HPJ" id="VTg-Sf-gsx"/>
+                        <outlet property="labelForStepsToday" destination="3PZ-qf-BU1" id="dJc-t8-Tor"/>
                         <outlet property="labelIsRunning" destination="I8v-sn-xfa" id="Qfw-U1-ySj"/>
                         <outlet property="stepCountSlider" destination="rSN-nX-AuB" id="lVA-2B-diE"/>
                     </connections>
