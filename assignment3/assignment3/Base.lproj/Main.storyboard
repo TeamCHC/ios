@@ -79,9 +79,17 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="roundedRect" placeholder="Goal" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="REz-4K-tNy">
+                                <rect key="frame" x="189" y="64" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="REz-4K-tNy" firstAttribute="top" secondItem="rSN-nX-AuB" secondAttribute="bottom" constant="-2" id="ASx-GY-WeS"/>
                             <constraint firstAttribute="trailing" secondItem="ibu-3U-xZX" secondAttribute="trailing" id="Fmv-vI-onY"/>
                             <constraint firstItem="ibu-3U-xZX" firstAttribute="leading" secondItem="Scr-qy-Agg" secondAttribute="leading" id="Ivv-hg-isw"/>
                             <constraint firstItem="UGp-Hg-eMI" firstAttribute="top" secondItem="3PZ-qf-BU1" secondAttribute="bottom" constant="8" symbolic="YES" id="Ovn-QR-qe0"/>
@@ -91,12 +99,17 @@
                             <constraint firstItem="ySX-1f-k4E" firstAttribute="top" secondItem="UGp-Hg-eMI" secondAttribute="bottom" constant="20" id="br7-3d-9n7"/>
                             <constraint firstItem="UGp-Hg-eMI" firstAttribute="leading" secondItem="3PZ-qf-BU1" secondAttribute="leading" id="cph-uT-qdS"/>
                             <constraint firstItem="UGp-Hg-eMI" firstAttribute="leading" secondItem="Scr-qy-Agg" secondAttribute="leading" constant="52" id="ddh-u7-lBW"/>
+                            <constraint firstAttribute="centerY" secondItem="REz-4K-tNy" secondAttribute="centerY" constant="205" id="etS-UT-cJK"/>
                             <constraint firstItem="UGp-Hg-eMI" firstAttribute="trailing" secondItem="3PZ-qf-BU1" secondAttribute="trailing" id="l91-cx-JNi"/>
                             <constraint firstItem="rSN-nX-AuB" firstAttribute="top" secondItem="XCY-yj-VJA" secondAttribute="bottom" constant="13" id="oRt-kB-lFT"/>
                             <constraint firstItem="ibu-3U-xZX" firstAttribute="centerY" secondItem="Scr-qy-Agg" secondAttribute="centerY" id="uDd-7E-ZQD"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="IgR-Sg-FKV" appends="YES" id="c4G-gL-r2v"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="dailyGoalTextField" destination="REz-4K-tNy" id="UX7-56-YA0"/>
                         <outlet property="graphView" destination="ibu-3U-xZX" id="Z9O-pE-urB"/>
                         <outlet property="labelForSteps" destination="Ubl-q7-HPJ" id="VTg-Sf-gsx"/>
                         <outlet property="labelForStepsToday" destination="3PZ-qf-BU1" id="dJc-t8-Tor"/>
@@ -109,6 +122,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jcb-nQ-QQm" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IgR-Sg-FKV">
+                    <connections>
+                        <action selector="tapGesture:" destination="UjH-ae-JSh" id="ABJ-jM-YFZ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-37" y="115"/>
         </scene>

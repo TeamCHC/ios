@@ -26,11 +26,18 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelIsDriving;
 @property (weak, nonatomic) IBOutlet UILabel *labelIsStill;
 
+@property (weak, nonatomic) IBOutlet UITextField *dailyGoalTextField;
 @property (strong,nonatomic) CMMotionManager *cmDeviceMotionManager;
+
+@property NSInteger totalSteps;
 
 @end
 
 @implementation MotionViewController
+
+- (IBAction)tapGesture:(id)sender {
+    [_dailyGoalTextField resignFirstResponder];
+}
 
 -(CMMotionManager*)cmDeviceMotionManager{
     if(!_cmDeviceMotionManager){
@@ -75,6 +82,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    _totalSteps = 0;
+    
     NSDate *now = [NSDate date];
     NSDate *then = [NSDate dateWithTimeInterval:(-60*60*24*2) sinceDate:now];
     
@@ -82,6 +91,7 @@
     
     [self.cmStepCounter queryStepCountStartingFrom:thenT to:now toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
         self.labelForStepsToday.text = [NSString stringWithFormat:@"Steps Today: %ld",(long)numberOfSteps];
+        _totalSteps = numberOfSteps;
         
     }];
     
@@ -98,7 +108,7 @@
         withHandler:^(NSInteger numberOfSteps, NSDate *timestamp, NSError *error) {
             if(!error){
                 self.stepCountSlider.value = numberOfSteps;
-                self.labelForSteps.text = [NSString stringWithFormat:@"Steps: %ld",(long)numberOfSteps];
+                self.labelForSteps.text = [NSString stringWithFormat:@"Steps: %ld",(long)numberOfSteps+_totalSteps];
             }
         }];
     
