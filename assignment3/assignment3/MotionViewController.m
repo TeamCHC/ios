@@ -22,6 +22,10 @@
 
 @property (strong,nonatomic) CMMotionActivityManager *cmActivityManager;
 @property (weak, nonatomic) IBOutlet UILabel *labelIsRunning;
+@property (weak, nonatomic) IBOutlet UILabel *labelIsWalking;
+@property (weak, nonatomic) IBOutlet UILabel *labelIsDriving;
+@property (weak, nonatomic) IBOutlet UILabel *labelIsStill;
+
 @property (strong,nonatomic) CMMotionManager *cmDeviceMotionManager;
 
 @end
@@ -72,17 +76,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     NSDate *now = [NSDate date];
-    NSDate *then = [NSDate dateWithTimeInterval:(-60*60*24) sinceDate:now];
+    NSDate *then = [NSDate dateWithTimeInterval:(-60*60*24*2) sinceDate:now];
     
-    NSDate *thenY = [NSDate dateWithTimeInterval:(-60*60*24*2) sinceDate:now];
+    NSDate *thenT = [NSDate dateWithTimeInterval:(-60*60*24) sinceDate:now];
     
-    [self.cmStepCounter queryStepCountStartingFrom:then to:now toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
+    [self.cmStepCounter queryStepCountStartingFrom:thenT to:now toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
         self.labelForStepsToday.text = [NSString stringWithFormat:@"Steps Today: %ld",(long)numberOfSteps];
         
     }];
     
-    [self.cmStepCounter queryStepCountStartingFrom:thenY to:then toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
-        self.labelForStepsY.text = [NSString stringWithFormat:@"Steps Yesterday: %ld",(long)numberOfSteps];
+    [self.cmStepCounter queryStepCountStartingFrom:then to:now toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
+        self.labelForStepsY.text = [NSString stringWithFormat:@"Steps Last 2 Days: %ld",(long)numberOfSteps];
         
     }];
     
@@ -101,6 +105,9 @@
     [self.cmActivityManager startActivityUpdatesToQueue:[NSOperationQueue mainQueue]
             withHandler:^(CMMotionActivity *activity) {
                 self.labelIsRunning.text = [NSString stringWithFormat:@"Running: %d",activity.running];
+                self.labelIsWalking.text = [NSString stringWithFormat:@"Walking: %d", activity.walking];
+                self.labelIsDriving.text = [NSString stringWithFormat:@"Driving: %d", activity.automotive];
+                self.labelIsStill.text = [NSString stringWithFormat:@"Is Still : %d",activity.stationary];
             }];
     [self startMotionUpdates];
 }
