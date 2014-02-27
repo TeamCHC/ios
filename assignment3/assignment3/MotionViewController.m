@@ -18,6 +18,8 @@
 @property (strong,nonatomic) NSNumber *dailyStepGoal;
 @property (weak, nonatomic) IBOutlet UILabel *labelForSteps;
 @property (weak, nonatomic) IBOutlet UILabel *labelForStepsToday;
+@property (weak, nonatomic) IBOutlet UILabel *labelForStepsY;
+
 @property (strong,nonatomic) CMMotionActivityManager *cmActivityManager;
 @property (weak, nonatomic) IBOutlet UILabel *labelIsRunning;
 @property (strong,nonatomic) CMMotionManager *cmDeviceMotionManager;
@@ -70,10 +72,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     NSDate *now = [NSDate date];
-    NSDate *then = [NSDate dateWithTimeInterval:(-60*60*24*2) sinceDate:now];
+    NSDate *then = [NSDate dateWithTimeInterval:(-60*60*24) sinceDate:now];
+    
+    NSDate *thenY = [NSDate dateWithTimeInterval:(-60*60*24*2) sinceDate:now];
     
     [self.cmStepCounter queryStepCountStartingFrom:then to:now toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
         self.labelForStepsToday.text = [NSString stringWithFormat:@"Steps Today: %ld",(long)numberOfSteps];
+        
+    }];
+    
+    [self.cmStepCounter queryStepCountStartingFrom:thenY to:then toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
+        self.labelForStepsY.text = [NSString stringWithFormat:@"Steps Yesterday: %ld",(long)numberOfSteps];
         
     }];
     
