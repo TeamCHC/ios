@@ -38,6 +38,8 @@
 - (IBAction)tapGesture:(id)sender {
     [_dailyGoalTextField resignFirstResponder];
     //set dailyStepGoal here
+    _dailyStepGoal = [NSNumber numberWithInt:[_dailyGoalTextField. text intValue]];
+
 }
 
 -(CMMotionManager*)cmDeviceMotionManager{
