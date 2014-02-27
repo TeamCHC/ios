@@ -37,6 +37,7 @@
 
 - (IBAction)tapGesture:(id)sender {
     [_dailyGoalTextField resignFirstResponder];
+    //set dailyStepGoal here
 }
 
 -(CMMotionManager*)cmDeviceMotionManager{
