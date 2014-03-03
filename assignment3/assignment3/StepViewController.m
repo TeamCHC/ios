@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *dailyGoalTextField;
 @property (weak, nonatomic) IBOutlet UIButton *resetSliderButton;
 @property NSInteger totalSteps;
-
+@property NSMutableArray *dotProductArray;
 @end
 
 @implementation StepViewController
@@ -95,7 +95,7 @@
 
 -(NSNumber*)dailyStepGoal{
     if(!_dailyStepGoal){
-        _dailyStepGoal = @(10000);
+        _dailyStepGoal = @(5000);
     }
     return _dailyStepGoal;
 }
@@ -113,7 +113,7 @@
 {
     [super viewDidLoad];
     self.resetSliderButton.hidden = YES;
-
+ 
     //_totalSteps = 0;
     
     
@@ -151,7 +151,7 @@
     }];
     
     [self.cmStepCounter queryStepCountStartingFrom:yesterday to:now toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
-        self.labelForStepsY.text = [NSString stringWithFormat:@"Steps today + yesterday: %ld",(long)numberOfSteps];
+        self.labelForStepsY.text = [NSString stringWithFormat:@"Steps Since Yesterday: %ld",(long)numberOfSteps];
     }];
     
     
@@ -211,7 +211,12 @@
              
              self.dotProductLabel.text = [NSString stringWithFormat:@"Dot Product: %0.5f", normDotProd];
              
-             if (normDotProd < -.3 || normDotProd > .3) {
+             for (int i = 0; i < 100; i++)
+             {
+                 self.dotProductArray[i] = normDotProd;
+             }
+             //if (normDotProd < -.3 || normDotProd > .3) {
+             if (abs(normDotProd) < .001 || abs(normDotProd) > .3) {
                  self.labelStairs.text = [NSString stringWithFormat:@"YES, STAIRS!"];
              }
              
