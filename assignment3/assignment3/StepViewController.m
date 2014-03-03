@@ -12,25 +12,45 @@
 @interface StepViewController ()
 @property (strong,nonatomic) CMStepCounter *cmStepCounter;
 @property (strong,nonatomic) NSNumber *dailyStepGoal;
+@property (weak, nonatomic) IBOutlet UILabel *goalReachedLabel;
 
 @property (weak, nonatomic) IBOutlet UISlider *stepCountSlider;
 @property (weak, nonatomic) IBOutlet UILabel *labelForSteps;
-@property (weak, nonatomic) IBOutlet UILabel *labelForStepsToday;
+//@property (weak, nonatomic) IBOutlet UILabel *labelForStepsToday;
 @property (weak, nonatomic) IBOutlet UILabel *labelForStepsY;
 @property (weak, nonatomic) IBOutlet UILabel *dotProductLabel;
 @property (weak, nonatomic) IBOutlet UILabel *labelStairs;
 @property (weak, nonatomic) IBOutlet UITextField *dailyGoalTextField;
+@property (weak, nonatomic) IBOutlet UIButton *resetSliderButton;
 
 @property NSInteger totalSteps;
+@property NSInteger totalSteps2;
+
 @end
 
 @implementation StepViewController
+- (IBAction)resetSliderAction:(id)sender {
+    self.stepCountSlider.value = 0;
+    self.goalReachedLabel.text = [NSString stringWithString:@("Keep Walking!")];
+    self.resetSliderButton.hidden = YES;
+
+}
 
 - (IBAction)tapGesture:(id)sender {
     [_dailyGoalTextField resignFirstResponder];
     //set dailyStepGoal here
     _dailyStepGoal = [NSNumber numberWithInt:[_dailyGoalTextField. text intValue]];
     
+    if (self.stepCountSlider.value >= [_dailyStepGoal floatValue]) {
+        NSLog(@"GOAL REACHED");
+        self.goalReachedLabel.text = [NSString stringWithString:@("Goal reached!")];
+        self.resetSliderButton.hidden = NO;
+    } else {
+        self.goalReachedLabel.text = [NSString stringWithString:@("Keep Walking!")];
+        self.resetSliderButton.hidden = YES;
+
+    }
+
 }
 
 - (CMMotionManager *)motionManager
@@ -89,36 +109,66 @@
     [super viewDidLoad];
     _totalSteps = 0;
     
-    CMAcceleration gravity, userAccel;
+    
+    NSDate *date = [NSDate date];
+    NSDateComponents *components = [[NSCalendar currentCalendar]components:NSIntegerMax fromDate:date];
+    [components setHour:0];
+    [components setMinute:0];
+    [components setSecond:0];
+    NSDate *midnight = [[NSCalendar currentCalendar] dateFromComponents:components];
+    NSDateComponents *diff = [[NSCalendar currentCalendar] components:NSHourCalendarUnit fromDate:midnight toDate:date options:0];
+    
+    NSInteger numberOfHoursPastMidnight = [diff hour];
     
     NSDate *now = [NSDate date];
-    NSDate *then = [NSDate dateWithTimeInterval:(-60*60*24*2) sinceDate:now];
+    NSDate *yesterday = [NSDate dateWithTimeInterval:(-(numberOfHoursPastMidnight+24*60*60)) sinceDate:now];
     
-    NSDate *thenT = [NSDate dateWithTimeInterval:(-60*60*24) sinceDate:now];
-    
-    [self.cmStepCounter queryStepCountStartingFrom:thenT to:now toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
-        self.labelForStepsToday.text = [NSString stringWithFormat:@"Steps Today: %ld",(long)numberOfSteps];
-        _totalSteps = numberOfSteps;
-        
-    }];
-    
-    [self.cmStepCounter queryStepCountStartingFrom:then to:now toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
-        self.labelForStepsY.text = [NSString stringWithFormat:@"Steps Last 2 Days: %ld",(long)numberOfSteps];
-        
-    }];
-    
+    NSDate *sinceMidnight = [NSDate dateWithTimeInterval:(-numberOfHoursPastMidnight*60*60) sinceDate:now];
     self.stepCountSlider.maximumValue = [self.dailyStepGoal floatValue];
+
+    [self.cmStepCounter queryStepCountStartingFrom:sinceMidnight to:now toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
+        //self.labelForStepsToday.text = [NSString stringWithFormat:@"Steps Today: %ld",(long)numberOfSteps];
+        _totalSteps = numberOfSteps;
+        self.labelForSteps.text = [NSString stringWithFormat:@"Steps Today Live: %ld",_totalSteps];
+        self.stepCountSlider.value = _totalSteps;
+        if (self.stepCountSlider.value >= self.stepCountSlider.maximumValue) {
+            NSLog(@"GOAL REACHED");
+            self.goalReachedLabel.text = [NSString stringWithString:@("Goal reached!")];
+            self.resetSliderButton.hidden = NO;
+
+        } else {
+            self.goalReachedLabel.text = [NSString stringWithString:@("Keep Walking!")];
+            self.resetSliderButton.hidden = YES;
+        }
+    }];
+    
+    [self.cmStepCounter queryStepCountStartingFrom:yesterday to:now toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
+        self.labelForStepsY.text = [NSString stringWithFormat:@"Steps today + yesterday: %ld",(long)numberOfSteps];
+        _totalSteps2 = numberOfSteps;
+    }];
+    
     
     [self.cmStepCounter startStepCountingUpdatesToQueue:[NSOperationQueue mainQueue]
                                                updateOn:1
                                             withHandler:^(NSInteger numberOfSteps, NSDate *timestamp, NSError *error) {
                                                 if(!error){
                                                     self.stepCountSlider.value = numberOfSteps;
-                                                    self.labelForSteps.text = [NSString stringWithFormat:@"Steps: %ld",(long)numberOfSteps+_totalSteps];
+                                                    if (self.stepCountSlider.value >= self.stepCountSlider.maximumValue) {
+                                                        NSLog(@"GOAL REACHED");
+                                                        self.goalReachedLabel.text = [NSString stringWithString:@("Goal reached!")];
+                                                        self.resetSliderButton.hidden = NO;
+
+
+                                                    } else {
+                                                        self.goalReachedLabel.text = [NSString stringWithString:@("Keep Walking!")];
+                                                        self.resetSliderButton.hidden = YES;
+
+                                                    }
+                                                    
+                                                    self.labelForSteps.text = [NSString stringWithFormat:@"Steps Today Live: %ld",(long)numberOfSteps+_totalSteps];
                                                 }
                                             }];
-
-	// Do any additional setup after loading the view.
+    [self startMotionUpdates];
 }
 -(void) startMotionUpdates{
     if(self.motionManager){
@@ -152,14 +202,10 @@
              motion.gravity.y*motion.gravity.y +
              motion.gravity.z*motion.gravity.z;
              
-             self.dotProductLabel.text = [NSString stringWithFormat:@"Dot Product: %0.2f", normDotProd];
+             self.dotProductLabel.text = [NSString stringWithFormat:@"Dot Product: %0.5f", normDotProd];
              
-             if (normDotProd >= -2.0 && normDotProd < -1.0) {
-                 self.labelStairs.text = [NSString stringWithFormat:@"Stairs: UP"];
-                 
-             } else if (normDotProd > 0 && normDotProd <= 2.0)
-             {
-                 self.labelStairs.text = [NSString stringWithFormat:@"Stairs: Down"];
+             if (normDotProd < -.1 && normDotProd > .1) {
+                 self.labelStairs.text = [NSString stringWithFormat:@"YES, STAIRS!"];
              }
              
          }];
