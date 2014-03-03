@@ -7,9 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreMotion/CoreMotion.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@class StepViewController, MotionViewController;
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+    CMMotionManager *motionManager;
+    CMMotionActivityManager *activityManager;
+}
+
+@property (readonly) CMMotionManager *motionManager;
+@property (readonly) CMMotionActivityManager *activityManager;
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) StepViewController *svc;
+@property (strong, nonatomic) MotionViewController *mvc;
 @end

@@ -11,132 +11,80 @@
 #import <CoreMotion/CoreMotion.h>
 
 @interface MotionViewController ()
-@property (weak, nonatomic) IBOutlet UISlider *stepCountSlider;
+
 @property (weak, nonatomic) IBOutlet APLGraphView *graphView;
-
-@property (strong,nonatomic) CMStepCounter *cmStepCounter;
-@property (strong,nonatomic) NSNumber *dailyStepGoal;
-@property (weak, nonatomic) IBOutlet UILabel *labelForSteps;
-@property (weak, nonatomic) IBOutlet UILabel *labelForStepsToday;
-@property (weak, nonatomic) IBOutlet UILabel *labelForStepsY;
-
-@property (strong,nonatomic) CMMotionActivityManager *cmActivityManager;
-@property (weak, nonatomic) IBOutlet UILabel *labelIsRunning;
-@property (weak, nonatomic) IBOutlet UILabel *labelIsWalking;
-@property (weak, nonatomic) IBOutlet UILabel *labelIsDriving;
-@property (weak, nonatomic) IBOutlet UILabel *labelIsStill;
-@property (weak, nonatomic) IBOutlet UILabel *labelStairs;
-
-@property (weak, nonatomic) IBOutlet UITextField *dailyGoalTextField;
-@property (strong,nonatomic) CMMotionManager *cmDeviceMotionManager;
-
-@property (weak, nonatomic) IBOutlet UILabel *dotProductLabel;
-@property NSInteger totalSteps;
-
+@property (weak, nonatomic) IBOutlet UILabel *activityLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @end
 
 @implementation MotionViewController
 
-- (IBAction)tapGesture:(id)sender {
-    [_dailyGoalTextField resignFirstResponder];
-    //set dailyStepGoal here
-    _dailyStepGoal = [NSNumber numberWithInt:[_dailyGoalTextField. text intValue]];
-
-}
-
--(CMMotionManager*)cmDeviceMotionManager{
-    if(!_cmDeviceMotionManager){
-        _cmDeviceMotionManager = [[CMMotionManager alloc] init];
-        
-        if(![_cmDeviceMotionManager isDeviceMotionAvailable]){
-            _cmDeviceMotionManager = nil;
-        }
-    }
-    return _cmDeviceMotionManager;
+- (CMMotionManager *)motionManager
+{
+    CMMotionManager *motionManager = nil;
     
-}
-
--(CMMotionActivityManager*)cmActivityManager{
-    if(!_cmActivityManager){
-        if([CMMotionActivityManager isActivityAvailable])
-            _cmActivityManager = [[CMMotionActivityManager alloc]init];
+    id appDelegate = [UIApplication sharedApplication].delegate;
+    
+    if ([appDelegate respondsToSelector:@selector(motionManager)]) {
+        motionManager = [appDelegate motionManager];
     }
-    return _cmActivityManager;
+    
+    return motionManager;
 }
 
--(CMStepCounter*)cmStepCounter{
-    if(!_cmStepCounter){
-        if([CMStepCounter isStepCountingAvailable]){
-            _cmStepCounter = [[CMStepCounter alloc ] init];
-        }
+-(CMMotionActivityManager*) activityManager
+{
+    CMMotionActivityManager *activityManager = nil;
+    id appDelegate = [UIApplication sharedApplication].delegate;
+    
+    if([appDelegate respondsToSelector:@selector(activityManager)]) {
+        activityManager = [appDelegate activityManager];
     }
-    return _cmStepCounter;
+    
+    return activityManager;
 }
-
-
--(NSNumber*)dailyStepGoal{
-    if(!_dailyStepGoal){
-        _dailyStepGoal = @(100);
-    }
-    return _dailyStepGoal;
-}
-
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    _totalSteps = 0;
     
-    CMAcceleration gravity, userAccel;
+    UIImage *image1 = [UIImage imageNamed: @"standing.png"];
+    UIImage *image2 = [UIImage imageNamed: @"walking.png"];
+    UIImage *image3 = [UIImage imageNamed: @"running.png"];
+    UIImage *image4 = [UIImage imageNamed: @"driving.png"];
     
-
-    
-    NSDate *now = [NSDate date];
-    NSDate *then = [NSDate dateWithTimeInterval:(-60*60*24*2) sinceDate:now];
-    
-    NSDate *thenT = [NSDate dateWithTimeInterval:(-60*60*24) sinceDate:now];
-    
-    [self.cmStepCounter queryStepCountStartingFrom:thenT to:now toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
-        self.labelForStepsToday.text = [NSString stringWithFormat:@"Steps Today: %ld",(long)numberOfSteps];
-        _totalSteps = numberOfSteps;
-        
-    }];
-    
-    [self.cmStepCounter queryStepCountStartingFrom:then to:now toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
-        self.labelForStepsY.text = [NSString stringWithFormat:@"Steps Last 2 Days: %ld",(long)numberOfSteps];
-        
-    }];
-    
-    self.stepCountSlider.maximumValue = [self.dailyStepGoal floatValue];
-    
-    [self.cmStepCounter startStepCountingUpdatesToQueue:[NSOperationQueue mainQueue]
-                                               updateOn:1
-        withHandler:^(NSInteger numberOfSteps, NSDate *timestamp, NSError *error) {
-            if(!error){
-                self.stepCountSlider.value = numberOfSteps;
-                self.labelForSteps.text = [NSString stringWithFormat:@"Steps: %ld",(long)numberOfSteps+_totalSteps];
-            }
-        }];
-    
-    [self.cmActivityManager startActivityUpdatesToQueue:[NSOperationQueue mainQueue]
+    [self.activityManager startActivityUpdatesToQueue:[NSOperationQueue mainQueue]
             withHandler:^(CMMotionActivity *activity) {
-                self.labelIsRunning.text = [NSString stringWithFormat:@"Running: %d",activity.running];
-                self.labelIsWalking.text = [NSString stringWithFormat:@"Walking: %d", activity.walking];
-                self.labelIsDriving.text = [NSString stringWithFormat:@"Driving: %d", activity.automotive];
-                self.labelIsStill.text = [NSString stringWithFormat:@"Is Still : %d",activity.stationary];
+
+                if (activity.running) {
+                    [self.imageView setImage:image3];
+                    self.activityLabel.text = [NSString stringWithFormat:@"Running"];
+                } else if (activity.walking) {
+                    [self.imageView setImage:image2];
+                    self.activityLabel.text = [NSString stringWithFormat:@"Walking"];
+
+                } else if (activity.automotive) {
+                    [self.imageView setImage:image4];
+                    self.activityLabel.text = [NSString stringWithFormat:@"Driving"];
+
+                } else if (activity.stationary) {
+                    [self.imageView setImage:image1];
+                    self.activityLabel.text = [NSString stringWithFormat:@"Standing"];
+
+                }
+                
+                //self.labelIsConfident.text = [NSString stringWithFormat:@"Is Confident : %d",activity.confidence];
 
             }];
     [self startMotionUpdates];
 }
 
 -(void) startMotionUpdates{
-    if(self.cmDeviceMotionManager){
+    if(self.motionManager){
         NSOperationQueue *myQueue = [[NSOperationQueue alloc] init];
         myQueue.maxConcurrentOperationCount = 1;
-        [self.cmDeviceMotionManager setDeviceMotionUpdateInterval:1.0/100.0];
-        [self.cmDeviceMotionManager
+        [self.motionManager setDeviceMotionUpdateInterval:1.0/100.0];
+        [self.motionManager
          startDeviceMotionUpdatesToQueue:myQueue
             withHandler:^(CMDeviceMotion *motion, NSError *error) {
                 
@@ -144,35 +92,10 @@
                 motion.gravity.x*motion.userAcceleration.x +
                 motion.gravity.y*motion.userAcceleration.y +
                 motion.gravity.z*motion.userAcceleration.z;
-                
-                NSLog(@"grav x %f",motion.gravity.x);
-                NSLog(@"grav y %f",motion.gravity.y);
-                NSLog(@"grav z %f",motion.gravity.z);
-
-                
-                float denom = sqrt(motion.gravity.x*motion.gravity.x + motion.gravity.y*motion.gravity.y + motion.gravity.z*motion.gravity.z);
-
-                float normDotProd = dotProduct / denom;
-                NSLog(@"dotProduct: %f",dotProduct);
-
-                NSLog(@"Denom: %f",denom);
-                NSLog(@"finalDP n %f",normDotProd);
-
 
                 dotProduct /= motion.gravity.x*motion.gravity.x +
                 motion.gravity.y*motion.gravity.y +
                 motion.gravity.z*motion.gravity.z;
-                
-                self.dotProductLabel.text = [NSString stringWithFormat:@"Dot Product: %0.2f", normDotProd];
-                
-                if (normDotProd >= -2.0 && normDotProd < -1.0) {
-                    self.labelStairs.text = [NSString stringWithFormat:@"Stairs: UP"];
-
-                } else if (normDotProd > 0 && normDotProd <= 2.0)
-                {
-                    self.labelStairs.text = [NSString stringWithFormat:@"Stairs: Down"];
-                }
-
                 
                 if(abs(dotProduct) > 0.8){
                     dispatch_async(dispatch_get_main_queue(),^{
@@ -184,22 +107,5 @@
             }];
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @end
