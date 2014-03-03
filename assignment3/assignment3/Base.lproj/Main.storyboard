@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="UjH-ae-JSh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="UjH-ae-JSh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -79,6 +79,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stairs: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLh-6B-sWU">
+                                <rect key="frame" x="20" y="158" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="100" borderStyle="roundedRect" placeholder="Goal" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="REz-4K-tNy">
                                 <rect key="frame" x="189" y="64" width="97" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,6 +93,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dot Product: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRK-XU-OBg">
+                                <rect key="frame" x="36" y="469" width="248" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -111,6 +125,7 @@
                     </view>
                     <connections>
                         <outlet property="dailyGoalTextField" destination="REz-4K-tNy" id="UX7-56-YA0"/>
+                        <outlet property="dotProductLabel" destination="BRK-XU-OBg" id="rxL-XT-YNP"/>
                         <outlet property="graphView" destination="ibu-3U-xZX" id="Z9O-pE-urB"/>
                         <outlet property="labelForSteps" destination="Ubl-q7-HPJ" id="VTg-Sf-gsx"/>
                         <outlet property="labelForStepsToday" destination="3PZ-qf-BU1" id="dJc-t8-Tor"/>
@@ -119,6 +134,7 @@
                         <outlet property="labelIsRunning" destination="I8v-sn-xfa" id="Qfw-U1-ySj"/>
                         <outlet property="labelIsStill" destination="NGA-HH-9CN" id="mUo-Zx-ft5"/>
                         <outlet property="labelIsWalking" destination="taR-QY-mPb" id="iwO-70-IcS"/>
+                        <outlet property="labelStairs" destination="aLh-6B-sWU" id="YyU-67-MxF"/>
                         <outlet property="stepCountSlider" destination="rSN-nX-AuB" id="lVA-2B-diE"/>
                     </connections>
                 </viewController>
@@ -129,7 +145,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-37" y="115"/>
+            <point key="canvasLocation" x="163" y="-32"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
