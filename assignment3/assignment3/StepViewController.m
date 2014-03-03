@@ -18,21 +18,18 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelForSteps;
 //@property (weak, nonatomic) IBOutlet UILabel *labelForStepsToday;
 @property (weak, nonatomic) IBOutlet UILabel *labelForStepsY;
-@property (weak, nonatomic) IBOutlet UILabel *dotProductLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *dotProductLabel;
 @property (weak, nonatomic) IBOutlet UILabel *labelStairs;
 @property (weak, nonatomic) IBOutlet UITextField *dailyGoalTextField;
-@property (weak, nonatomic) IBOutlet UIButton *resetSliderButton;
 @property NSInteger totalSteps;
 @property NSMutableArray *dotProductArray;
+@property NSInteger i;
+@property NSInteger counter;
+@property NSString *string;
 @end
 
 @implementation StepViewController
-- (IBAction)resetSliderAction:(id)sender {
-    self.stepCountSlider.value = 0;
-    self.goalReachedLabel.text = [NSString stringWithString:@("Keep Walking!")];
-    self.resetSliderButton.hidden = YES;
 
-}
 
 - (IBAction)tapGesture:(id)sender {
     [_dailyGoalTextField resignFirstResponder];
@@ -52,7 +49,6 @@
         //self.resetSliderButton.hidden = NO;
     } else {
         self.goalReachedLabel.text = [NSString stringWithString:@("Keep Walking!")];
-        self.resetSliderButton.hidden = YES;
 
     }
 
@@ -112,8 +108,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.resetSliderButton.hidden = YES;
- 
+    _dotProductArray = [[NSMutableArray alloc]init];
     //_totalSteps = 0;
     
     
@@ -146,7 +141,6 @@
 
         } else {
             self.goalReachedLabel.text = [NSString stringWithString:@("Keep Walking!")];
-            self.resetSliderButton.hidden = YES;
         }
     }];
     
@@ -159,7 +153,7 @@
                                                updateOn:1
                                             withHandler:^(NSInteger numberOfSteps, NSDate *timestamp, NSError *error) {
                                                 if(!error){
-                                                    self.stepCountSlider.value = numberOfSteps;
+                                                    self.stepCountSlider.value = numberOfSteps+_totalSteps;
                                                     if (self.stepCountSlider.value >= self.stepCountSlider.maximumValue) {
                                                         //NSLog(@"GOAL REACHED");
                                                         self.goalReachedLabel.text = [NSString stringWithString:@("Goal reached!")];
@@ -168,7 +162,6 @@
 
                                                     } else {
                                                         self.goalReachedLabel.text = [NSString stringWithString:@("Keep Walking!")];
-                                                        self.resetSliderButton.hidden = YES;
 
                                                     }
                                                     
@@ -199,31 +192,60 @@
              float denom = sqrt(motion.gravity.x*motion.gravity.x + motion.gravity.y*motion.gravity.y + motion.gravity.z*motion.gravity.z);
              
              float normDotProd = dotProduct / denom;
-             NSLog(@"dotProduct: %f",dotProduct);
-             
-             //NSLog(@"Denom: %f",denom);
-             //NSLog(@"finalDP %f",normDotProd);
+             if (normDotProd < -.7 || normDotProd > .7) {
+                 self.labelStairs.text = [NSString stringWithFormat:@"YES, STAIRS!"];
+                 
+             }
+
              
              
              dotProduct /= motion.gravity.x*motion.gravity.x +
              motion.gravity.y*motion.gravity.y +
              motion.gravity.z*motion.gravity.z;
              
-             self.dotProductLabel.text = [NSString stringWithFormat:@"Dot Product: %0.5f", normDotProd];
+             //self.dotProductLabel.text = [NSString stringWithFormat:@"Dot Product: %0.5f", normDotProd];
+//             NSNumber *aNumber = [NSNumber numberWithFloat:normDotProd];
+////
+////             
+//
+//                 _dotProductArray[_i] = aNumber;
+//             _i++;
+//             
              
-             for (int i = 0; i < 100; i++)
-             {
-                 self.dotProductArray[i] = normDotProd;
-             }
-             //if (normDotProd < -.3 || normDotProd > .3) {
-             if (abs(normDotProd) < .001 || abs(normDotProd) > .3) {
-                 self.labelStairs.text = [NSString stringWithFormat:@"YES, STAIRS!"];
-             }
+//             
+//             if ( aNumber > 0 && ![_string  isEqual: @"negative"]) {
+//                 
+//                _string = @"positive";
+//             } else if (aNumber > 0 && [_string isEqual: @"negative"]) {
+//                _string = @"positive";
+//
+//             }
+             
+                 // switch pos to neg here
+//                 else if (aNumber < 0  ) {
+//                 _string = @"negative";
+//             }
+             
+//             
+//             if (_i >= 3) {
+//                 if (_dotProductArray[_i] > 0 && _dotProductArray[_i-1] > 0 && _dotProductArray[_i - 2] > 0) {
+//                     
+//                 }
+//                 _i = 0;
+//             }
+//             
+//             if (aNumber > 0)
+//             {
+//                 _counter++;
+//             }
+//             for (int j = 0; j < 100; j++)
+//             {
+//                 
+//             }
+
              
          }];
     }
-//    if ([CMMotionActivityManager isActivityAvailable] == YES )
-//        [self.cmActivityManager stopActivityUpdates];
 }
 
 @end

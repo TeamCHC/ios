@@ -27,28 +27,21 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stairs? " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLh-6B-sWU">
-                                <rect key="frame" x="20" y="140" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dot Product: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRK-XU-OBg">
-                                <rect key="frame" x="140" y="140" width="248" height="21"/>
+                                <rect key="frame" x="20" y="169" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Steps Since Yesterday:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UGp-Hg-eMI">
-                                <rect key="frame" x="20" y="169" width="280" height="31"/>
+                                <rect key="frame" x="20" y="464" width="280" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Steps Today Live:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubl-q7-HPJ">
-                                <rect key="frame" x="20" y="157" width="280" height="21"/>
+                                <rect key="frame" x="20" y="435" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -62,7 +55,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1l-t8-0Rv">
-                                <rect key="frame" x="26" y="216" width="269" height="68"/>
+                                <rect key="frame" x="26" y="310" width="269" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="highlightedColor"/>
@@ -73,16 +66,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQZ-RD-g9b">
-                                <rect key="frame" x="140" y="355" width="40" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reset">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="resetSliderAction:" destination="2DV-u8-t4m" eventType="touchUpInside" id="Ogo-jb-UAw"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -93,12 +76,10 @@
                     <tabBarItem key="tabBarItem" title="Stepper" id="j2h-2L-Bkv"/>
                     <connections>
                         <outlet property="dailyGoalTextField" destination="REz-4K-tNy" id="3LG-f9-LeA"/>
-                        <outlet property="dotProductLabel" destination="BRK-XU-OBg" id="b1n-eP-W5l"/>
                         <outlet property="goalReachedLabel" destination="w1l-t8-0Rv" id="gPu-NQ-DxB"/>
                         <outlet property="labelForSteps" destination="Ubl-q7-HPJ" id="dQg-KY-Ieb"/>
                         <outlet property="labelForStepsY" destination="UGp-Hg-eMI" id="4dU-xK-dPW"/>
                         <outlet property="labelStairs" destination="aLh-6B-sWU" id="XW1-Ew-Yha"/>
-                        <outlet property="resetSliderButton" destination="FQZ-RD-g9b" id="3zw-wH-hwO"/>
                         <outlet property="stepCountSlider" destination="rSN-nX-AuB" id="0Ad-RC-Lbl"/>
                     </connections>
                 </viewController>
@@ -167,7 +148,6 @@
                     <connections>
                         <outlet property="activityLabel" destination="NGA-HH-9CN" id="r7E-m4-ia2"/>
                         <outlet property="dailyGoalTextField" destination="REz-4K-tNy" id="UX7-56-YA0"/>
-                        <outlet property="dotProductLabel" destination="BRK-XU-OBg" id="rxL-XT-YNP"/>
                         <outlet property="graphView" destination="ibu-3U-xZX" id="Z9O-pE-urB"/>
                         <outlet property="imageView" destination="BjR-ml-9DB" id="U3U-ZE-iSi"/>
                     </connections>
