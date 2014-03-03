@@ -22,9 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelStairs;
 @property (weak, nonatomic) IBOutlet UITextField *dailyGoalTextField;
 @property (weak, nonatomic) IBOutlet UIButton *resetSliderButton;
-
 @property NSInteger totalSteps;
-@property NSInteger totalSteps2;
 
 @end
 
@@ -40,11 +38,18 @@
     [_dailyGoalTextField resignFirstResponder];
     //set dailyStepGoal here
     _dailyStepGoal = [NSNumber numberWithInt:[_dailyGoalTextField. text intValue]];
+    _stepCountSlider.maximumValue = [ _dailyStepGoal floatValue];
+    self.stepCountSlider.value = _totalSteps;
+    
+    //NSLog(@"Stepcountslider: %f",self.stepCountSlider.value);
+    //NSLog(@"total steps: %ld",(long)_totalSteps);
+
+    self.stepCountSlider.value = _totalSteps;
     
     if (self.stepCountSlider.value >= [_dailyStepGoal floatValue]) {
-        NSLog(@"GOAL REACHED");
+        //NSLog(@"GOAL REACHED");
         self.goalReachedLabel.text = [NSString stringWithString:@("Goal reached!")];
-        self.resetSliderButton.hidden = NO;
+        //self.resetSliderButton.hidden = NO;
     } else {
         self.goalReachedLabel.text = [NSString stringWithString:@("Keep Walking!")];
         self.resetSliderButton.hidden = YES;
@@ -90,7 +95,7 @@
 
 -(NSNumber*)dailyStepGoal{
     if(!_dailyStepGoal){
-        _dailyStepGoal = @(100);
+        _dailyStepGoal = @(10000);
     }
     return _dailyStepGoal;
 }
@@ -107,7 +112,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _totalSteps = 0;
+    self.resetSliderButton.hidden = YES;
+
+    //_totalSteps = 0;
     
     
     NSDate *date = [NSDate date];
@@ -130,11 +137,12 @@
         //self.labelForStepsToday.text = [NSString stringWithFormat:@"Steps Today: %ld",(long)numberOfSteps];
         _totalSteps = numberOfSteps;
         self.labelForSteps.text = [NSString stringWithFormat:@"Steps Today Live: %ld",_totalSteps];
+        
         self.stepCountSlider.value = _totalSteps;
         if (self.stepCountSlider.value >= self.stepCountSlider.maximumValue) {
-            NSLog(@"GOAL REACHED");
+            //NSLog(@"GOAL REACHED");
             self.goalReachedLabel.text = [NSString stringWithString:@("Goal reached!")];
-            self.resetSliderButton.hidden = NO;
+            //self.resetSliderButton.hidden = NO;
 
         } else {
             self.goalReachedLabel.text = [NSString stringWithString:@("Keep Walking!")];
@@ -144,7 +152,6 @@
     
     [self.cmStepCounter queryStepCountStartingFrom:yesterday to:now toQueue:[NSOperationQueue mainQueue] withHandler:^(NSInteger numberOfSteps, NSError *error) {
         self.labelForStepsY.text = [NSString stringWithFormat:@"Steps today + yesterday: %ld",(long)numberOfSteps];
-        _totalSteps2 = numberOfSteps;
     }];
     
     
@@ -154,9 +161,9 @@
                                                 if(!error){
                                                     self.stepCountSlider.value = numberOfSteps;
                                                     if (self.stepCountSlider.value >= self.stepCountSlider.maximumValue) {
-                                                        NSLog(@"GOAL REACHED");
+                                                        //NSLog(@"GOAL REACHED");
                                                         self.goalReachedLabel.text = [NSString stringWithString:@("Goal reached!")];
-                                                        self.resetSliderButton.hidden = NO;
+                                                        //self.resetSliderButton.hidden = NO;
 
 
                                                     } else {
@@ -184,9 +191,9 @@
              motion.gravity.y*motion.userAcceleration.y +
              motion.gravity.z*motion.userAcceleration.z;
              
-             NSLog(@"grav x %f",motion.gravity.x);
-             NSLog(@"grav y %f",motion.gravity.y);
-             NSLog(@"grav z %f",motion.gravity.z);
+             //NSLog(@"grav x %f",motion.gravity.x);
+             //NSLog(@"grav y %f",motion.gravity.y);
+             //NSLog(@"grav z %f",motion.gravity.z);
              
              
              float denom = sqrt(motion.gravity.x*motion.gravity.x + motion.gravity.y*motion.gravity.y + motion.gravity.z*motion.gravity.z);
@@ -194,8 +201,8 @@
              float normDotProd = dotProduct / denom;
              NSLog(@"dotProduct: %f",dotProduct);
              
-             NSLog(@"Denom: %f",denom);
-             NSLog(@"finalDP %f",normDotProd);
+             //NSLog(@"Denom: %f",denom);
+             //NSLog(@"finalDP %f",normDotProd);
              
              
              dotProduct /= motion.gravity.x*motion.gravity.x +
@@ -204,7 +211,7 @@
              
              self.dotProductLabel.text = [NSString stringWithFormat:@"Dot Product: %0.5f", normDotProd];
              
-             if (normDotProd < -.1 && normDotProd > .1) {
+             if (normDotProd < -.3 || normDotProd > .3) {
                  self.labelStairs.text = [NSString stringWithFormat:@"YES, STAIRS!"];
              }
              
