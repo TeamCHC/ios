@@ -10,6 +10,9 @@
 
 #import "AppDelegate.h"
 
+//Hunter Houston
+//Chelsea Rickel
+//Conner Knutson
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
