@@ -44,12 +44,12 @@ float radius;
     
     
 //    __weak typeof(self) weakSelf = self;
-    __block CIFilter *filter = [CIFilter filterWithName:@"CIPinchDistortion"];
+    __block CIFilter *filter = [CIFilter filterWithName:@"CIRadialGradient"];
     
     __block NSDictionary *opts = @{CIDetectorAccuracy: CIDetectorAccuracyLow};
     CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace context:self.videoManager.ciContext options:opts];
     
-    [filter setValue:@(radius) forKey:@"inputRadius"];
+    //[filter setValue:@(radius) forKey:@"inputRadius"];
     [self.videoManager setProcessBlock:^(CIImage *cameraImage){
         
         opts = @{CIDetectorImageOrientation:

@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "VideoAnalgesic.h"
+#import <QuartzCore/QuartzCore.h>
+#import <CoreImage/CoreImage.h>
 
 @interface ViewController ()
 
@@ -23,12 +25,6 @@
 @end
 
 @implementation ViewController
-/* The value for this key is a bool NSNumber. If true, facial expressions, such as blinking and closed eyes are extracted */
-CORE_IMAGE_EXPORT NSString *const CIDetectorEyeBlink __OSX_AVAILABLE_STARTING(__MAC_10_9, __IPHONE_7_0);
-
-
-/* The value for this key is a bool NSNumber. If true, facial expressions, such as smile are extracted */
-CORE_IMAGE_EXPORT NSString *const CIDetectorSmile __OSX_AVAILABLE_STARTING(__MAC_10_9, __IPHONE_7_0);
 
 float radius;
 
@@ -50,36 +46,58 @@ float radius;
     radius = 100.0;
     self.center = [CIVector vectorWithX:self.view.bounds.size.height/2.0 - radius/2.0 Y:self.view.bounds.size.width/2.0+radius/2.0];
     
-    //__weak typeof(self) weakSelf = self;
-    NSString *accuracy = self.useHighAccuracy ? CIDetectorAccuracyHigh : CIDetectorAccuracyLow;// 1
+    __weak typeof(self) weakSelf = self;
+    //NSString *accuracy = self.useHighAccuracy ? CIDetectorAccuracyHigh : CIDetectorAccuracyLow;// 1
+    __block CIFilter *filter = [CIFilter filterWithName:@"CIRadialGradient"];
+    __block CIFilter *filter2 = [CIFilter filterWithName:@"CIRadialGradient"];
 
-    __block NSDictionary *opts = @{CIDetectorSmile: @(YES), CIDetectorEyeBlink: @(YES) };      // 2
-//(
-    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace context:self.videoManager.ciContext options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
-//
-    //
+    [filter setValue:@"100f" forKey:@"inputRadius0"];
+    [filter setValue:@"300f" forKey:@"inputRadius1"];
+
+    [filter2 setValue:@"10f" forKey:@"inputRadius0"];
+    [filter2 setValue:@"150f" forKey:@"inputRadius1"];
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace context:weakSelf.videoManager.ciContext options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
+    __block NSDictionary *options = @{CIDetectorSmile: @(YES), CIDetectorEyeBlink: @(YES), CIDetectorImageOrientation :
+                                                                   [VideoAnalgesic ciOrientationFromDeviceOrientation:[UIApplication sharedApplication].statusBarOrientation]};
+
     [self.videoManager setProcessBlock:^(CIImage *cameraImage){
         
-        opts = @{ CIDetectorImageOrientation :
-                      [VideoAnalgesic ciOrientationFromDeviceOrientation:[UIApplication sharedApplication].statusBarOrientation]
-                  };            NSArray *features = [detector featuresInImage:cameraImage options:opts];
-        
-        
-        //[weakSelf drawImageAnnotatedWithFeatures:features];
+
+        NSArray *features = [detector featuresInImage:cameraImage options:options];
         
         for (CIFaceFeature *face in features)
         {
+
+            //NSLog(@"Bounds: %@", NSStringFromCGRect(face.bounds));
             
+            CGRect modifiedFaceBounds = face.bounds;
             float xx = face.bounds.origin.x + face.bounds.size.height/2;
             float yy = face.bounds.origin.y + face.bounds.size.width/2;
-            CIVector *vect = [CIVector vectorWithX:xx Y:yy];
-            CGRect bounds = face.bounds;
-            NSLog(@"Left eyeblink: %@", face.leftEyeClosed ? @"YES" : @"NO");
-            NSLog(@"Right eyeblink: %@", face.rightEyeClosed ? @"YES" : @"NO");
-            NSLog(@"Smile %@", face.hasSmile ? @"YES" : @"NO");
-
-            //NSLog(@"Bounds: %@", NSStringFromCGRect(f.bounds));
             
+            
+//            float xx2 = face.leftEyePosition.x + face.bounds.size.height/2;
+//            float yy2 = face.leftEyePosition.y + face.bounds.size.width/2;
+            
+            CIVector *vect = [CIVector vectorWithX:xx Y:yy];
+
+            //CIVector *vect2 = [CIVector vectorWithX:xx2 Y:yy2];
+            
+            //NSLog(@"vect: %@",vect);
+            [filter setValue:vect forKey:@"inputCenter"];
+            //[filter setValue:vect2 forKey:@"inputCenter"];
+
+            //[filter setValue:cameraImage forKey:kCIInputImageKey];
+            cameraImage = filter.outputImage;
+            
+            NSString *hasSmile = face.hasSmile ? @"Yes" : @"No";
+            NSString *hasLeftEye = face.hasLeftEyePosition ? @"Yes" : @"No";
+            NSString *hasRightEye = face.hasRightEyePosition ? @"Yes" : @"No";
+            NSString *hasLeftEyeBlink = face.leftEyeClosed ? @"Yes" : @"No";
+            NSString *hasRightEyeBlink = face.rightEyeClosed ? @"Yes" : @"No";
+            NSString *string = [NSString stringWithFormat:@" SMILING: %@\n LEFT EYE: %@\n LEFT EYE BLINKING: %@\n RIGHT EYE: %@\n RIGHT EYE BLINKING: %@",
+                   hasSmile, hasLeftEye, hasLeftEyeBlink, hasRightEye, hasRightEyeBlink];
+            
+            //NSLog(@"string: %@",string);
         }
         return cameraImage;
     }];
@@ -93,7 +111,19 @@ float radius;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//- (void)drawRect:(CGRect)rect {
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    CGContextSetLineWidth(context, 2.0);
+//    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+//    CGFloat components[] = {0.0, 0.0, 1.0, 1.0};
+//    CGColorRef color = CGColorCreate(colorspace, components);
+//    CGContextSetStrokeColorWithColor(context, color);
+//    CGContextMoveToPoint(context, 30, 30);
+//    CGContextAddLineToPoint(context, 300, 400);
+//    CGContextStrokePath(context);
+//    CGColorSpaceRelease(colorspace);
+//    CGColorRelease(color);
+//}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
