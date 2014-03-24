@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    UIView *faceView;
+}
+@property (strong, nonatomic) UIWindow *window;
+
 
 @end
