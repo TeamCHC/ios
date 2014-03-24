@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CF4B49818DFB87700C336AB /* ViewControllerB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4B49718DFB87700C336AB /* ViewControllerB.mm */; };
+		0CF4D43C18DFC12800C336AB /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF4D43B18DFC12800C336AB /* opencv2.framework */; };
 		39189FDF18DECC5500D6521A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39189FDE18DECC5500D6521A /* Foundation.framework */; };
 		39189FE118DECC5500D6521A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39189FE018DECC5500D6521A /* CoreGraphics.framework */; };
 		39189FE318DECC5500D6521A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39189FE218DECC5500D6521A /* UIKit.framework */; };
@@ -37,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CF4B49618DFB87700C336AB /* ViewControllerB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerB.h; sourceTree = "<group>"; };
+		0CF4B49718DFB87700C336AB /* ViewControllerB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewControllerB.mm; sourceTree = "<group>"; };
+		0CF4D43B18DFC12800C336AB /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		39189FDB18DECC5500D6521A /* CoreImageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39189FDE18DECC5500D6521A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		39189FE018DECC5500D6521A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -67,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CF4D43C18DFC12800C336AB /* opencv2.framework in Frameworks */,
 				3918A01618DECC8800D6521A /* QuartzCore.framework in Frameworks */,
 				3918A01418DECC8000D6521A /* CoreImage.framework in Frameworks */,
 				39189FE118DECC5500D6521A /* CoreGraphics.framework in Frameworks */,
@@ -110,6 +116,7 @@
 		39189FDD18DECC5500D6521A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CF4D43B18DFC12800C336AB /* opencv2.framework */,
 				3918A01518DECC8800D6521A /* QuartzCore.framework */,
 				3918A01318DECC8000D6521A /* CoreImage.framework */,
 				39189FDE18DECC5500D6521A /* Foundation.framework */,
@@ -130,6 +137,8 @@
 				39189FF018DECC5500D6521A /* Main.storyboard */,
 				39189FF318DECC5500D6521A /* ViewController.h */,
 				39189FF418DECC5500D6521A /* ViewController.m */,
+				0CF4B49618DFB87700C336AB /* ViewControllerB.h */,
+				0CF4B49718DFB87700C336AB /* ViewControllerB.mm */,
 				39189FF618DECC5500D6521A /* Images.xcassets */,
 				39189FE518DECC5500D6521A /* Supporting Files */,
 			);
@@ -266,6 +275,7 @@
 				3918A01918DECCB500D6521A /* VideoAnalgesic.m in Sources */,
 				39189FEF18DECC5500D6521A /* AppDelegate.m in Sources */,
 				39189FEB18DECC5500D6521A /* main.m in Sources */,
+				0CF4B49818DFB87700C336AB /* ViewControllerB.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,9 +400,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/KNUTSON/ios/CoreImageApp,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreImageApp/CoreImageApp-Prefix.pch";
 				INFOPLIST_FILE = "CoreImageApp/CoreImageApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/KNUTSON/ios/CoreImageApp/opencv-2.4.8/3rdparty/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -403,9 +422,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/KNUTSON/ios/CoreImageApp,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreImageApp/CoreImageApp-Prefix.pch";
 				INFOPLIST_FILE = "CoreImageApp/CoreImageApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/KNUTSON/ios/CoreImageApp/opencv-2.4.8/3rdparty/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
