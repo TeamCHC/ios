@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3916824F18E0263400FAC295 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3916824E18E0263400FAC295 /* opencv2.framework */; };
 		39189FDF18DECC5500D6521A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39189FDE18DECC5500D6521A /* Foundation.framework */; };
 		39189FE118DECC5500D6521A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39189FE018DECC5500D6521A /* CoreGraphics.framework */; };
 		39189FE318DECC5500D6521A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39189FE218DECC5500D6521A /* UIKit.framework */; };
@@ -24,6 +25,9 @@
 		3918A01418DECC8000D6521A /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3918A01318DECC8000D6521A /* CoreImage.framework */; };
 		3918A01618DECC8800D6521A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3918A01518DECC8800D6521A /* QuartzCore.framework */; };
 		3918A01918DECCB500D6521A /* VideoAnalgesic.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918A01818DECCB500D6521A /* VideoAnalgesic.m */; };
+		393762DE18E0280100069266 /* haarcascade_frontalface_default.xml in Resources */ = {isa = PBXBuildFile; fileRef = 393762DD18E0280100069266 /* haarcascade_frontalface_default.xml */; };
+		39F670C918E08FDC00CC57AF /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39F670C818E08FDC00CC57AF /* AssetsLibrary.framework */; };
+		39F670CC18E09FEB00CC57AF /* HeartRateViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 39F670CB18E09FEB00CC57AF /* HeartRateViewController.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3916824E18E0263400FAC295 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
 		39189FDB18DECC5500D6521A /* CoreImageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39189FDE18DECC5500D6521A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		39189FE018DECC5500D6521A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -60,6 +65,10 @@
 		3918A01518DECC8800D6521A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3918A01718DECCB500D6521A /* VideoAnalgesic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoAnalgesic.h; sourceTree = "<group>"; };
 		3918A01818DECCB500D6521A /* VideoAnalgesic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoAnalgesic.m; sourceTree = "<group>"; };
+		393762DD18E0280100069266 /* haarcascade_frontalface_default.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_default.xml; sourceTree = "<group>"; };
+		39F670C818E08FDC00CC57AF /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		39F670CA18E09FEB00CC57AF /* HeartRateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartRateViewController.h; sourceTree = "<group>"; };
+		39F670CB18E09FEB00CC57AF /* HeartRateViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HeartRateViewController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39F670C918E08FDC00CC57AF /* AssetsLibrary.framework in Frameworks */,
+				3916824F18E0263400FAC295 /* opencv2.framework in Frameworks */,
 				3918A01618DECC8800D6521A /* QuartzCore.framework in Frameworks */,
 				3918A01418DECC8000D6521A /* CoreImage.framework in Frameworks */,
 				39189FE118DECC5500D6521A /* CoreGraphics.framework in Frameworks */,
@@ -110,6 +121,8 @@
 		39189FDD18DECC5500D6521A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39F670C818E08FDC00CC57AF /* AssetsLibrary.framework */,
+				3916824E18E0263400FAC295 /* opencv2.framework */,
 				3918A01518DECC8800D6521A /* QuartzCore.framework */,
 				3918A01318DECC8000D6521A /* CoreImage.framework */,
 				39189FDE18DECC5500D6521A /* Foundation.framework */,
@@ -128,6 +141,8 @@
 				3918A01718DECCB500D6521A /* VideoAnalgesic.h */,
 				3918A01818DECCB500D6521A /* VideoAnalgesic.m */,
 				39189FF018DECC5500D6521A /* Main.storyboard */,
+				39F670CA18E09FEB00CC57AF /* HeartRateViewController.h */,
+				39F670CB18E09FEB00CC57AF /* HeartRateViewController.mm */,
 				39189FF318DECC5500D6521A /* ViewController.h */,
 				39189FF418DECC5500D6521A /* ViewController.m */,
 				39189FF618DECC5500D6521A /* Images.xcassets */,
@@ -139,6 +154,7 @@
 		39189FE518DECC5500D6521A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				393762DD18E0280100069266 /* haarcascade_frontalface_default.xml */,
 				39189FE618DECC5500D6521A /* CoreImageApp-Info.plist */,
 				39189FE718DECC5500D6521A /* InfoPlist.strings */,
 				39189FEA18DECC5500D6521A /* main.m */,
@@ -243,6 +259,7 @@
 			files = (
 				39189FF718DECC5500D6521A /* Images.xcassets in Resources */,
 				39189FE918DECC5500D6521A /* InfoPlist.strings in Resources */,
+				393762DE18E0280100069266 /* haarcascade_frontalface_default.xml in Resources */,
 				39189FF218DECC5500D6521A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +281,7 @@
 			files = (
 				39189FF518DECC5500D6521A /* ViewController.m in Sources */,
 				3918A01918DECCB500D6521A /* VideoAnalgesic.m in Sources */,
+				39F670CC18E09FEB00CC57AF /* HeartRateViewController.mm in Sources */,
 				39189FEF18DECC5500D6521A /* AppDelegate.m in Sources */,
 				39189FEB18DECC5500D6521A /* main.m in Sources */,
 			);
@@ -390,6 +408,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreImageApp/CoreImageApp-Prefix.pch";
 				INFOPLIST_FILE = "CoreImageApp/CoreImageApp-Info.plist";
@@ -403,6 +425,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CoreImageApp/CoreImageApp-Prefix.pch";
 				INFOPLIST_FILE = "CoreImageApp/CoreImageApp-Info.plist";

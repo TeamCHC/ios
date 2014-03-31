@@ -10,6 +10,8 @@
 #import "VideoAnalgesic.h"
 #import <QuartzCore/QuartzCore.h>
 #import <CoreImage/CoreImage.h>
+#import <opencv2/highgui/cap_ios.h>
+
 
 @interface ViewController ()
 
@@ -20,7 +22,6 @@
 @property (readonly, assign) CGPoint rightEyePosition;
 @property (readonly, assign) CGPoint mouthPosition;
 @property (nonatomic, strong) UIImageView *activeImageView;
-
 
 @end
 
@@ -49,10 +50,7 @@ float radius;
     
     __weak typeof(self) weakSelf = self;
     //NSString *accuracy = self.useHighAccuracy ? CIDetectorAccuracyHigh : CIDetectorAccuracyLow;// 1
-    __block CIFilter *filter = [CIFilter filterWithName:@"CIRadialGradient"];
 
-    [filter setValue:@"100f" forKey:@"inputRadius0"];
-    [filter setValue:@"300f" forKey:@"inputRadius1"];
 
     CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace context:weakSelf.videoManager.ciContext options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
     __block NSDictionary *options = @{CIDetectorSmile: @(YES), CIDetectorEyeBlink: @(YES), CIDetectorImageOrientation :
@@ -63,78 +61,42 @@ float radius;
 
         NSArray *features = [detector featuresInImage:cameraImage options:options];
         
-        [weakSelf drawOnFace:features];
-
+        //[weakSelf drawOnFace:cameraImage :features];
+//        NSString *fileName = @"haarcascade_frontalface_default";
+//        NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:@"xml"];
+//        
+//        weakSelf.classifier = cv::CascadeClassifier([filePath UTF8String]);
+        for (CIFaceFeature *face in features)
+        {
+            
+            float xx = face.bounds.origin.x + face.bounds.size.height/2;
+            float yy = face.bounds.origin.y + face.bounds.size.width/2;
+            CIVector *vect = [CIVector vectorWithX:xx Y:yy];
+            
+            CIFilter *filter = [CIFilter filterWithName:@"CIRadialGradient"];
+            
+            [filter setValue:@"10f" forKey:@"inputRadius0"];
+            [filter setValue:@"150f" forKey:@"inputRadius1"];
+            //NSLog(@"vect: %@",vect);
+            [filter setValue:vect forKey:@"inputCenter"];
+            cameraImage = filter.outputImage;
+            
+            NSString *hasSmile = face.hasSmile ? @"Yes" : @"No";
+            NSString *hasLeftEye = face.hasLeftEyePosition ? @"Yes" : @"No";
+            NSString *hasRightEye = face.hasRightEyePosition ? @"Yes" : @"No";
+            NSString *hasLeftEyeBlink = face.leftEyeClosed ? @"Yes" : @"No";
+            NSString *hasRightEyeBlink = face.rightEyeClosed ? @"Yes" : @"No";
+            NSString *string = [NSString stringWithFormat:@" SMILING: %@\n LEFT EYE: %@\n LEFT EYE BLINKING: %@\n RIGHT EYE: %@\n RIGHT EYE BLINKING: %@",
+                                hasSmile, hasLeftEye, hasLeftEyeBlink, hasRightEye, hasRightEyeBlink];
+            
+            NSLog(@"string: %@",string);
+        }
         
         return cameraImage;
     }];
     //[self detectFacialFeatures];
 }
 
-- (void) drawOnFace:(NSArray *)features {
-    for (CIFaceFeature *face in features)
-    {
-        
-        //NSLog(@"Bounds: %@", NSStringFromCGRect(face.bounds));
-        [faceView removeFromSuperview];
-        CGFloat faceWidth = face.bounds.size.width;
-        // create a UIView using the bounds of the face
-        faceView = [[UIView alloc] initWithFrame:face.bounds];
-        // add a border around the newly created UIView
-        faceView.layer.borderWidth = 1;
-        faceView.layer.borderColor = [[UIColor redColor] CGColor];
-        // add the new view to create a box around the face
-        //[weakSelf.view addSubview:faceView];
-        //[self.view addSubview:faceView];
-        if(face.hasLeftEyePosition)
-        {
-            // create a UIView with a size based on the width of the face
-            UIView* leftEyeView = [[UIView alloc] initWithFrame:CGRectMake(face.leftEyePosition.x-faceWidth*0.15, face.leftEyePosition.y-faceWidth*0.15, faceWidth*0.3, faceWidth*0.3)];
-            // change the background color of the eye view
-            [leftEyeView setBackgroundColor:[[UIColor blueColor] colorWithAlphaComponent:0.3]];
-            // set the position of the leftEyeView based on the face
-            [leftEyeView setCenter:face.leftEyePosition];
-            // round the corners
-            leftEyeView.layer.cornerRadius = faceWidth*0.15;
-            // add the view to the window
-            [self.view addSubview:leftEyeView];
-        }
-        
-        if(face.hasRightEyePosition)
-        {
-            // create a UIView with a size based on the width of the face
-            UIView* rightEyeView = [[UIView alloc] initWithFrame:CGRectMake(face.rightEyePosition.x-faceWidth*0.15, face.rightEyePosition.y-faceWidth*0.15, faceWidth*0.3, faceWidth*0.3)];
-            // change the background color of the eye view
-            [rightEyeView setBackgroundColor:[[UIColor redColor] colorWithAlphaComponent:0.3]];
-            // set the position of the rightEyeView based on the face
-            [rightEyeView setCenter:face.rightEyePosition];
-            // round the corners
-            rightEyeView.layer.cornerRadius = faceWidth*0.15;
-            // add the new view to the window
-            [self.view addSubview:rightEyeView];
-        }
-        
-        CGRect modifiedFaceBounds = face.bounds;
-        float xx = face.bounds.origin.x + face.bounds.size.height/2;
-        float yy = face.bounds.origin.y + face.bounds.size.width/2;
-        CIVector *vect = [CIVector vectorWithX:xx Y:yy];
-        
-        
-        //NSLog(@"vect: %@",vect);
-        //[filter setValue:vect forKey:@"inputCenter"];
-        //cameraImage = filter.outputImage;
-        
-        NSString *hasSmile = face.hasSmile ? @"Yes" : @"No";
-        NSString *hasLeftEye = face.hasLeftEyePosition ? @"Yes" : @"No";
-        NSString *hasRightEye = face.hasRightEyePosition ? @"Yes" : @"No";
-        NSString *hasLeftEyeBlink = face.leftEyeClosed ? @"Yes" : @"No";
-        NSString *hasRightEyeBlink = face.rightEyeClosed ? @"Yes" : @"No";
-        NSString *string = [NSString stringWithFormat:@" SMILING: %@\n LEFT EYE: %@\n LEFT EYE BLINKING: %@\n RIGHT EYE: %@\n RIGHT EYE BLINKING: %@",
-                            hasSmile, hasLeftEye, hasLeftEyeBlink, hasRightEye, hasRightEyeBlink];
-        
-        NSLog(@"string: %@",string);
-    }
-}
 
 - (IBAction)useHighAccuracy:(id)sender {
     self.useHighAccuracy = [sender isOn];
