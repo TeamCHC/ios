@@ -14,7 +14,7 @@
 @interface ViewController ()
 
 @property (strong,nonatomic) VideoAnalgesic *videoManager;
-@property (nonatomic, assign) BOOL useHighAccuracy;
+@property (nonatomic) BOOL useHighAccuracy;
 @property (strong,nonatomic) CIVector *center;
 @property (readonly, assign) CGPoint leftEyePosition;
 @property (readonly, assign) CGPoint rightEyePosition;
@@ -43,28 +43,33 @@ float radius;
 
     self.view.backgroundColor = nil;
     
-    self.window = [[UIWindow alloc]initWithFrame:self.window.frame];
-    radius = 100.0;
-    self.center = [CIVector vectorWithX:self.view.bounds.size.height/2.0 - radius/2.0 Y:self.view.bounds.size.width/2.0+radius/2.0];
+//    self.window = [[UIWindow alloc]initWithFrame:self.window.frame];
+    
+//    radius = 100.0;
+//    self.center = [CIVector vectorWithX:self.view.bounds.size.height/2.0 - radius/2.0 Y:self.view.bounds.size.width/2.0+radius/2.0];
     
     __weak typeof(self) weakSelf = self;
     //NSString *accuracy = self.useHighAccuracy ? CIDetectorAccuracyHigh : CIDetectorAccuracyLow;// 1
-    __block CIFilter *filter = [CIFilter filterWithName:@"CIRadialGradient"];
+//    __block CIFilter *filter = [CIFilter filterWithName:@"CIRadialGradient"];
+//
+//    [filter setValue:@"100f" forKey:@"inputRadius0"];
+//    [filter setValue:@"300f" forKey:@"inputRadius1"];
 
-    [filter setValue:@"100f" forKey:@"inputRadius0"];
-    [filter setValue:@"300f" forKey:@"inputRadius1"];
-
-    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace context:weakSelf.videoManager.ciContext options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
-    __block NSDictionary *options = @{CIDetectorSmile: @(YES), CIDetectorEyeBlink: @(YES), CIDetectorImageOrientation :
-                                                                   [VideoAnalgesic ciOrientationFromDeviceOrientation:[UIApplication sharedApplication].statusBarOrientation]};
+    NSDictionary *opts1 = @{CIDetectorAccuracy:CIDetectorAccuracyHigh};
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace
+                                              context:self.videoManager.ciContext
+                                              options:opts1];
+    
 
     [self.videoManager setProcessBlock:^(CIImage *cameraImage){
-        
+         NSDictionary *options = @{CIDetectorSmile: @(YES), CIDetectorEyeBlink: @(YES), CIDetectorImageOrientation :
+                                              [VideoAnalgesic ciOrientationFromDeviceOrientation:[UIApplication sharedApplication].statusBarOrientation]};
 
         NSArray *features = [detector featuresInImage:cameraImage options:options];
         
+        
+        
         [weakSelf drawOnFace:features];
-
         
         return cameraImage;
     }];

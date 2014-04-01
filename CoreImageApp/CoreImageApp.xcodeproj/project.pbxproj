@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		0CF4B49818DFB87700C336AB /* ViewControllerB.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0CF4B49718DFB87700C336AB /* ViewControllerB.mm */; };
 		0CF4D43C18DFC12800C336AB /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF4D43B18DFC12800C336AB /* opencv2.framework */; };
+		0CF4D43E18E0BA5700C336AB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF4D43D18E0BA5700C336AB /* Accelerate.framework */; };
+		0CF4D44018E0BA6D00C336AB /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF4D43F18E0BA6D00C336AB /* AssetsLibrary.framework */; };
+		0CF4D44218E0BA7D00C336AB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF4D44118E0BA7D00C336AB /* AVFoundation.framework */; };
+		0CF4D44418E0BAA000C336AB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF4D44318E0BAA000C336AB /* CoreMedia.framework */; };
+		0CF4D44618E0BAA900C336AB /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CF4D44518E0BAA900C336AB /* CoreVideo.framework */; };
 		39189FDF18DECC5500D6521A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39189FDE18DECC5500D6521A /* Foundation.framework */; };
 		39189FE118DECC5500D6521A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39189FE018DECC5500D6521A /* CoreGraphics.framework */; };
 		39189FE318DECC5500D6521A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39189FE218DECC5500D6521A /* UIKit.framework */; };
@@ -42,6 +47,11 @@
 		0CF4B49618DFB87700C336AB /* ViewControllerB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerB.h; sourceTree = "<group>"; };
 		0CF4B49718DFB87700C336AB /* ViewControllerB.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewControllerB.mm; sourceTree = "<group>"; };
 		0CF4D43B18DFC12800C336AB /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		0CF4D43D18E0BA5700C336AB /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		0CF4D43F18E0BA6D00C336AB /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		0CF4D44118E0BA7D00C336AB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		0CF4D44318E0BAA000C336AB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		0CF4D44518E0BAA900C336AB /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		39189FDB18DECC5500D6521A /* CoreImageApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreImageApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39189FDE18DECC5500D6521A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		39189FE018DECC5500D6521A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,9 +82,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CF4D44618E0BAA900C336AB /* CoreVideo.framework in Frameworks */,
+				0CF4D44418E0BAA000C336AB /* CoreMedia.framework in Frameworks */,
+				3918A01418DECC8000D6521A /* CoreImage.framework in Frameworks */,
+				0CF4D44218E0BA7D00C336AB /* AVFoundation.framework in Frameworks */,
+				0CF4D44018E0BA6D00C336AB /* AssetsLibrary.framework in Frameworks */,
+				0CF4D43E18E0BA5700C336AB /* Accelerate.framework in Frameworks */,
 				0CF4D43C18DFC12800C336AB /* opencv2.framework in Frameworks */,
 				3918A01618DECC8800D6521A /* QuartzCore.framework in Frameworks */,
-				3918A01418DECC8000D6521A /* CoreImage.framework in Frameworks */,
 				39189FE118DECC5500D6521A /* CoreGraphics.framework in Frameworks */,
 				39189FE318DECC5500D6521A /* UIKit.framework in Frameworks */,
 				39189FDF18DECC5500D6521A /* Foundation.framework in Frameworks */,
@@ -116,6 +131,11 @@
 		39189FDD18DECC5500D6521A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0CF4D44518E0BAA900C336AB /* CoreVideo.framework */,
+				0CF4D44318E0BAA000C336AB /* CoreMedia.framework */,
+				0CF4D44118E0BA7D00C336AB /* AVFoundation.framework */,
+				0CF4D43F18E0BA6D00C336AB /* AssetsLibrary.framework */,
+				0CF4D43D18E0BA5700C336AB /* Accelerate.framework */,
 				0CF4D43B18DFC12800C336AB /* opencv2.framework */,
 				3918A01518DECC8800D6521A /* QuartzCore.framework */,
 				3918A01318DECC8000D6521A /* CoreImage.framework */,
@@ -221,6 +241,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = SMU;
 				TargetAttributes = {
+					39189FDA18DECC5500D6521A = {
+						DevelopmentTeam = APD62CDC25;
+					};
 					39189FFB18DECC5500D6521A = {
 						TestTargetID = 39189FDA18DECC5500D6521A;
 					};
@@ -359,7 +382,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.0;
 			};
 			name = Debug;
 		};
@@ -390,7 +413,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -398,8 +421,10 @@
 		3918A00E18DECC5500D6521A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/KNUTSON/ios/CoreImageApp,
@@ -420,8 +445,10 @@
 		3918A00F18DECC5500D6521A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/KNUTSON/ios/CoreImageApp,

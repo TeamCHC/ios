@@ -13,9 +13,12 @@
 #import <opencv2/highgui/cap_ios.h>
 #endif
 
+using namespace cv;
+
 @interface ViewControllerB ()<CvVideoCameraDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) CvVideoCamera* videoCamera;
+@property (nonatomic) Boolean torchIsOn;
 @end
 
 @implementation ViewControllerB
@@ -41,6 +44,11 @@
     self.videoCamera.defaultFPS = 30;
     self.videoCamera.grayscaleMode = NO;
     [self.videoCamera start];
+    
+    self.torchIsOn = false;
+    
+    
+    
 }
 
 #ifdef __cplusplus
@@ -50,13 +58,15 @@
     cvtColor(image, image_copy, CV_BGRA2BGR); // get rid of alpha for processing
     // processing here to the image_copy
     cvtColor(image_copy, image, CV_RGB2BGRA); //add back for display
+    
+    
 }
 #endif
 
 - (IBAction)toggleTorch:(id)sender {
     self.torchIsOn = !self.torchIsOn;
     [self setTorchOn:self.torchIsOn];
-}!
+}
 - (void)setTorchOn: (BOOL) onOff
 {
     AVCaptureDevice *device = [AVCaptureDevice
