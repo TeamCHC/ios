@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController {
     UIView *faceView;
+    UIView* rightEyeView;
+    UIView* leftEyeView;
 }
 @property (strong, nonatomic) UIWindow *window;
 
