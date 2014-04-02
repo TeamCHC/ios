@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "39F4EFA518D3A2A000C35BC3"
-               BuildableName = "assignment4.app"
-               BlueprintName = "assignment4"
-               ReferencedContainer = "container:assignment4.xcodeproj">
+               BlueprintIdentifier = "2941610015DB55E5003210B3"
+               BuildableName = "BLE Chat.app"
+               BlueprintName = "BLE Chat"
+               ReferencedContainer = "container:BLE Chat.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,24 +28,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "39F4EFC618D3A2A000C35BC3"
-               BuildableName = "assignment4Tests.xctest"
-               BlueprintName = "assignment4Tests"
-               ReferencedContainer = "container:assignment4.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "39F4EFA518D3A2A000C35BC3"
-            BuildableName = "assignment4.app"
-            BlueprintName = "assignment4"
-            ReferencedContainer = "container:assignment4.xcodeproj">
+            BlueprintIdentifier = "2941610015DB55E5003210B3"
+            BuildableName = "BLE Chat.app"
+            BlueprintName = "BLE Chat"
+            ReferencedContainer = "container:BLE Chat.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -61,10 +51,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "39F4EFA518D3A2A000C35BC3"
-            BuildableName = "assignment4.app"
-            BlueprintName = "assignment4"
-            ReferencedContainer = "container:assignment4.xcodeproj">
+            BlueprintIdentifier = "2941610015DB55E5003210B3"
+            BuildableName = "BLE Chat.app"
+            BlueprintName = "BLE Chat"
+            ReferencedContainer = "container:BLE Chat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -79,10 +69,10 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "39F4EFA518D3A2A000C35BC3"
-            BuildableName = "assignment4.app"
-            BlueprintName = "assignment4"
-            ReferencedContainer = "container:assignment4.xcodeproj">
+            BlueprintIdentifier = "2941610015DB55E5003210B3"
+            BuildableName = "BLE Chat.app"
+            BlueprintName = "BLE Chat"
+            ReferencedContainer = "container:BLE Chat.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
