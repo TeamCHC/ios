@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391C2B1918ED354900D66912 /* CLLocation+measuring.m in Sources */ = {isa = PBXBuildFile; fileRef = 391C2B1018ED354900D66912 /* CLLocation+measuring.m */; };
+		391C2B1A18ED354900D66912 /* CLLocation+routeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 391C2B1218ED354900D66912 /* CLLocation+routeInfo.m */; };
+		391C2B1B18ED354900D66912 /* CLLocationDeadReckoning.m in Sources */ = {isa = PBXBuildFile; fileRef = 391C2B1418ED354900D66912 /* CLLocationDeadReckoning.m */; };
+		391C2B1C18ED354900D66912 /* CLLocationDispatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 391C2B1618ED354900D66912 /* CLLocationDispatch.m */; };
+		391C2B1D18ED354900D66912 /* README.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 391C2B1818ED354900D66912 /* README.markdown */; };
+		391C2B1F18ED356700D66912 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 391C2B1E18ED356700D66912 /* CoreLocation.framework */; };
 		3924F30F18C4417E00317B81 /* StepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3924F30E18C4417E00317B81 /* StepViewController.m */; };
 		399E096B18BBF53F00D76851 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399E096A18BBF53F00D76851 /* Foundation.framework */; };
 		399E096D18BBF53F00D76851 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 399E096C18BBF53F00D76851 /* CoreGraphics.framework */; };
@@ -36,6 +42,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		391C2B0F18ED354900D66912 /* CLLocation+measuring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+measuring.h"; sourceTree = "<group>"; };
+		391C2B1018ED354900D66912 /* CLLocation+measuring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+measuring.m"; sourceTree = "<group>"; };
+		391C2B1118ED354900D66912 /* CLLocation+routeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocation+routeInfo.h"; sourceTree = "<group>"; };
+		391C2B1218ED354900D66912 /* CLLocation+routeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocation+routeInfo.m"; sourceTree = "<group>"; };
+		391C2B1318ED354900D66912 /* CLLocationDeadReckoning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLocationDeadReckoning.h; sourceTree = "<group>"; };
+		391C2B1418ED354900D66912 /* CLLocationDeadReckoning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLLocationDeadReckoning.m; sourceTree = "<group>"; };
+		391C2B1518ED354900D66912 /* CLLocationDispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLocationDispatch.h; sourceTree = "<group>"; };
+		391C2B1618ED354900D66912 /* CLLocationDispatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLLocationDispatch.m; sourceTree = "<group>"; };
+		391C2B1718ED354900D66912 /* CLUtilsDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLUtilsDefines.h; sourceTree = "<group>"; };
+		391C2B1818ED354900D66912 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+		391C2B1E18ED356700D66912 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3924F30D18C4417E00317B81 /* StepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepViewController.h; sourceTree = "<group>"; };
 		3924F30E18C4417E00317B81 /* StepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepViewController.m; sourceTree = "<group>"; };
 		399E096718BBF53F00D76851 /* assignment3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = assignment3.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				391C2B1F18ED356700D66912 /* CoreLocation.framework in Frameworks */,
 				399E096D18BBF53F00D76851 /* CoreGraphics.framework in Frameworks */,
 				399E096F18BBF53F00D76851 /* UIKit.framework in Frameworks */,
 				399E096B18BBF53F00D76851 /* Foundation.framework in Frameworks */,
@@ -85,6 +103,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		391C2B0D18ED354900D66912 /* CoreLocationUtils-master */ = {
+			isa = PBXGroup;
+			children = (
+				391C2B0E18ED354900D66912 /* CoreLocationUtils */,
+				391C2B1818ED354900D66912 /* README.markdown */,
+			);
+			path = "CoreLocationUtils-master";
+			sourceTree = "<group>";
+		};
+		391C2B0E18ED354900D66912 /* CoreLocationUtils */ = {
+			isa = PBXGroup;
+			children = (
+				391C2B0F18ED354900D66912 /* CLLocation+measuring.h */,
+				391C2B1018ED354900D66912 /* CLLocation+measuring.m */,
+				391C2B1118ED354900D66912 /* CLLocation+routeInfo.h */,
+				391C2B1218ED354900D66912 /* CLLocation+routeInfo.m */,
+				391C2B1318ED354900D66912 /* CLLocationDeadReckoning.h */,
+				391C2B1418ED354900D66912 /* CLLocationDeadReckoning.m */,
+				391C2B1518ED354900D66912 /* CLLocationDispatch.h */,
+				391C2B1618ED354900D66912 /* CLLocationDispatch.m */,
+				391C2B1718ED354900D66912 /* CLUtilsDefines.h */,
+			);
+			path = CoreLocationUtils;
+			sourceTree = "<group>";
+		};
 		399E095E18BBF53F00D76851 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +150,7 @@
 		399E096918BBF53F00D76851 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				391C2B1E18ED356700D66912 /* CoreLocation.framework */,
 				399E096A18BBF53F00D76851 /* Foundation.framework */,
 				399E096C18BBF53F00D76851 /* CoreGraphics.framework */,
 				399E096E18BBF53F00D76851 /* UIKit.framework */,
@@ -136,6 +180,7 @@
 		399E097118BBF53F00D76851 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				391C2B0D18ED354900D66912 /* CoreLocationUtils-master */,
 				399E097218BBF53F00D76851 /* assignment3-Info.plist */,
 				399E097318BBF53F00D76851 /* InfoPlist.strings */,
 				399E097618BBF53F00D76851 /* main.m */,
@@ -240,6 +285,7 @@
 			files = (
 				399E098318BBF53F00D76851 /* Images.xcassets in Resources */,
 				399E097518BBF53F00D76851 /* InfoPlist.strings in Resources */,
+				391C2B1D18ED354900D66912 /* README.markdown in Resources */,
 				399E097E18BBF53F00D76851 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,10 +306,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				399E09A418BD43E800D76851 /* MotionViewController.m in Sources */,
+				391C2B1C18ED354900D66912 /* CLLocationDispatch.m in Sources */,
+				391C2B1A18ED354900D66912 /* CLLocation+routeInfo.m in Sources */,
+				391C2B1B18ED354900D66912 /* CLLocationDeadReckoning.m in Sources */,
 				3924F30F18C4417E00317B81 /* StepViewController.m in Sources */,
 				399E097B18BBF53F00D76851 /* AppDelegate.m in Sources */,
 				399E097718BBF53F00D76851 /* main.m in Sources */,
 				399E09A318BD43E800D76851 /* APLGraphView.m in Sources */,
+				391C2B1918ED354900D66912 /* CLLocation+measuring.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

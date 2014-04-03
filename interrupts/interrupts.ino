@@ -32,15 +32,19 @@
 #define BLINK_DELAY 100         // number of milliseconds between LED toggles
 
 /* pin definitions */
-#define LED    13               // LED is on pin 13
+#define LED    7               // LED is on pin 13
 #define SW     2                // switch input on pin 2
 #define SW_GND 4                // other side of switch on pin 4
+#define potOut  10              // output with analogWrite()
 
 
 /* global variables */
 boolean blinkLED = true;
-int potPin = A0;
+int potPin = A0; // resistor output to A0  (potentiometer)
 int val = 0;
+int low;
+int high;
+float potDelay;
 
 
 /* initialization code */
@@ -61,18 +65,31 @@ void setup() {
 
 /* mainloop - runs forever */
 void loop() {
-  val = analogRead(potPin); // read input from analogPin
-  Serial.println(val);
+  val = analogRead(potPin); // read input from resistor (potentiometer)
+  Serial.println(val);      // val should be between 0 and 1024
   
-    if (blinkLED) {                 // blink LED if in that state
-        digitalWrite(LED, HIGH);    // turn LED on
-        delay(BLINK_DELAY);         // wait before turning it off
-        digitalWrite(LED, LOW);     // turn LED off
-        delay(BLINK_DELAY);         // wait before turning it back on
-    }
+  low = 700;
+  high = 1100;
+  
+  potDelay = val/2; // millisonds of delay, normally ~100
+  // when val=700, delay=0.35sec
+  // when val=100, delay=0.05sec
+  
+  // blink for potentiometer
+  digitalWrite(potOut, HIGH);
+  delay(potDelay);
+  digitalWrite(potOut, LOW);
+  delay(potDelay);
+  
+  if (blinkLED) {                 // blink LED if in that state
+      digitalWrite(LED, HIGH);    // turn LED on
+      delay(BLINK_DELAY);         // wait before turning it off
+      digitalWrite(LED, LOW);     // turn LED off
+      delay(BLINK_DELAY);         // wait before turning it back on
+  }
 }
 
 /* switch press interrupt service routine */
 void SW_ISR() {
-    blinkLED = !blinkLED;           // toggle blink state
+    blinkLED = !blinkLED;           // toggle blink state with button
 }

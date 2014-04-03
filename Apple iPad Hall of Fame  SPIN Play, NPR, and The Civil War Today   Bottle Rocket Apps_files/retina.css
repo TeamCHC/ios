@@ -1,0 +1,116 @@
+@media only screen and (max-width: 767px) {
+	body {
+		background: url(/library/images/body_bg@2x.jpg);
+	}
+	
+	nav {
+		background: url(/library/images/header_bg@2x.png) repeat-x bottom; 
+	}
+	
+	hr.rough {
+		background: url(/library/images/hr-rough-bg@2x.png);
+	}
+	
+	.arrowbtn.thruster-icon::before {
+		content: url(/library/images/arrowbtn-thrustericon@2x.png);
+	}
+	
+	.arrowbtn::after {
+		content: url(/library/images/arrowbtn-endcap@2x.png);
+	}
+	
+	.arrowbtn::before {
+		content: url(/library/images/arrowbtn-startcap@2x.png);
+	}
+	
+	.arrowbtn.thruster-icon::before {
+		background: url(/library/images/arrowbtn-thrustericon@2x.png) no-repeat;
+		position: absolute;
+		margin: -5px 0 0 -42px;
+		width: 43px;
+		height: 35px;
+		background-size: 43px 35px;
+		content: "";
+	}	
+	#third {
+		background: url(/library/images/felt-bg@2x.jpg);
+		background-size: 359px 359px;
+	}
+	
+	footer {
+		background: url(/library/images/footer-bg@2x.jpg) repeat bottom;
+		background-size: 496px 1200px;
+	}
+
+	section.pattern div.footer-rocket {
+		background: url(/library/images/footer-rocket@2x.png) no-repeat 50px 10px;
+		background-size: 120px 193px;
+	}
+	
+	footer section.pattern {
+		background: url(/library/images/footer-bldg-clouds@2x.png) repeat-x bottom;
+		background-size: 1242px 204px;
+	}
+	
+	.arrowbtn {
+		padding: 5px 0 5px 0px;
+	}
+	.arrowbtn::after {
+		content: "";
+		background: url(/library/images/arrowbtn-endcap@2x.png);
+		background-size: 22px 35px;
+		width: 22px;
+		height: 36px;
+	}
+	.arrowbtn::before {
+		content: "";
+		background: url(/library/images/arrowbtn-startcap@2x.png) no-repeat;
+		background-size: 12px 34px;
+		width: 12px;
+		height: 35px;
+	}
+	nav ul li a.thruster-nav {
+		background: url(/library/images/thruster_link@2x.png);
+		background-size: 100px 50px;
+		background-position: top;
+		color: #BA3030;
+	}
+	nav ul li a.thruster-nav span {
+		padding-left: 20px;
+		display: inherit;
+	}
+	
+
+
+	nav ul li a.thruster-nav {
+		background: url(/library/images/thruster_link@2x.png);
+		background-size: 100px 50px;
+	}
+	
+	nav ul li a.thruster-nav:hover {
+		background-position: 0 50px;
+	}
+
+	/*Mobile Homepage CSS
+	============================*/
+	body.subpage.mobile-homepage div#container div.whoweare {
+	background: url(/library/images/mobile-rocketbg@2x.jpg) center bottom no-repeat;
+	background-size: 480px 219px;
+	}
+
+	body.subpage.mobile-homepage div.ourwork a.appwall {
+		background: url(/library/images/mobile-appwall@2x.jpg) center top;
+		background-size: 480px 273px;
+	}
+
+	body.subpage.mobile-homepage div.howwethink div.retinaImg img.howwethink {
+		visibility: hidden;
+	}
+
+	body.subpage.mobile-homepage div.howwethink div.retinaImg {
+		width: 100%;
+		height: 242px;
+		background: url(/library/images/mobile-howwethink@2x.jpg) no-repeat center top;
+		background-size: 320px 242px;
+	}
+}
